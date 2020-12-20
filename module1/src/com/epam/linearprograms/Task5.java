@@ -1,6 +1,6 @@
 package com.epam.linearprograms;
 
-public class HomeTask_1_5 {
+public class Task5 {
     public static void main(String[] args) {
         int t = 7772;
         int hours = t / 3600;
