@@ -1,13 +1,10 @@
 package com.epam.cycles;
 
-public class HomeTask_1_3_5 {
+public class Task35 {
+    private static final int  ASCII_LENGTH = 255;
     public static void main(String[] args) {
-        for (int i = 0; i <= 127; i++) {
+        for (int i = 0; i <= ASCII_LENGTH; i++) {
             System.out.println(i + " " + (char) i);
         }
-
-        System.out.println();
     }
 }
-
-
