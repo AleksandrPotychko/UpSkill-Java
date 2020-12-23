@@ -10,17 +10,23 @@ public class Task36 {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String stringM = reader.readLine();
         int m = Integer.parseInt(stringM);
+
         System.out.println("Enter the n:");
         String stringN = reader.readLine();
         int n = Integer.parseInt(stringN);
-        if (m <= 0 || n <= 0) {
-            System.out.println("Введите натуральные числа.");
-        } else if ( m > n) {
-            System.out.println("Нарушена последовательность.");
-        } for (int i = m; i <= n; i++) {
-            for (int j = 2; j < n; j++) {
-                if (i % j == 0 && i != j ) {
-                    System.out.println("Делители для числа " + i + ": " + j);
+        for (int i = m; i <= n; i++) {
+            for (int divisor = 2; divisor < n; divisor++) {
+                boolean isNaturalNumber = false;
+                System.out.print("\nThe number " + i + " = ");
+                while (divisor <= i / 2) {
+                    if (i % divisor == 0) {
+                        System.out.print(divisor + " ");
+                        isNaturalNumber = true;
+                    }
+                    divisor++;
+                }
+                if (!isNaturalNumber) {
+                    System.out.print("Prime number");
                 }
             }
         }
