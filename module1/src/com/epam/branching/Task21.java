@@ -8,12 +8,12 @@ public class Task21 {
         double a = 90;
         double b = 45;
         double sumOfTwoAngles = a + b;
-         if (a == RIGHT_ANGLE || b == RIGHT_ANGLE || sumOfTwoAngles == RIGHT_ANGLE) {
-             System.out.println("This is a right-angled triangle");
-         } else if (sumOfTwoAngles < SUM_OF_ANGLES) {
-             System.out.println("This isn't a right-angled triangle");
-         } else {
-             System.out.println("A triangle with defined angles doesn't exist!");
-         }
+        if (a == RIGHT_ANGLE || b == RIGHT_ANGLE || sumOfTwoAngles == RIGHT_ANGLE) {
+            System.out.println("This is a right-angled triangle");
+        } else if (sumOfTwoAngles < SUM_OF_ANGLES) {
+            System.out.println("This isn't a right-angled triangle");
+        } else {
+            System.out.println("A triangle with defined angles doesn't exist!");
+        }
     }
 }
