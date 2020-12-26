@@ -1,6 +1,7 @@
 package com.epam.onedimensionalarrays;
 
 public class ArraySumm {
+
     private static final int DIVIDER = 2;
 
     public static void sumElements() {
