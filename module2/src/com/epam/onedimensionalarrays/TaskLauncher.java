@@ -1,8 +1,10 @@
 package com.epam.onedimensionalarrays;
+//В массиве целых чисел с количеством элементов n найти наиболее часто встречающееся число.
+//Если таких чисел несколько, то определить наименьшее из них.
 
 public class TaskLauncher {
     public static void main(String[] args) {
-        int [] array= {1, -4, 3, 0, -5, 6, 0, 8, 0, -5, 4 ,3};
+        int [] array= {7, 7, 7, 9, 4, 8, 4, 3};
   //  task1    System.out.println(CalculateSumOfArray.calculateSumOfArray(array, 2));
 
   //  task2    System.out.println(CalculateNumberOfReplacements.calculateNumberOfReplacements(array, 5));
@@ -17,5 +19,12 @@ public class TaskLauncher {
 
   //  task5   NumbersGreaterTheirIndex number = new NumbersGreaterTheirIndex();
   //  task5   number.numbersGreaterTheirIndex(array);
+
+  //  task6   System.out.println(SumOfIndexesOfPrimeNumbers.sumOfIndexesOfPrimeNumbers(array));
+
+  //  task7   System.out.println(CalculateNumbersOfFormula.calculateNumbersOfFormula(array));
+  //  task8   System.out.println(DeleteMinValueOfArray.deleteMinValue(array));
+  //  task9   System.out.println(GetMostPopularNumber.getMostPopularNumber(array));
+
     }
 }
