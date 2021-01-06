@@ -1,6 +1,4 @@
 package com.epam.onedimensionalarrays;
-//Дана последовательность целых чисел а1 ,а2 ,..., аn.
-//Образовать новую последовательность, выбросив из исходной те члены, которые равны min(а1 ,а2 ,..., аn).
 
 public class DeleteMinValueOfArray {
     public static int[] deleteMinValue(int[] array) {

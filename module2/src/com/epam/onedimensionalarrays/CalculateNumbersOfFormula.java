@@ -1,5 +1,5 @@
 package com.epam.onedimensionalarrays;
-//Даны действительные числа а1 ,а2 ,..., аn. Найти
+
 
 public class CalculateNumbersOfFormula {
     public static int calculateNumbersOfFormula(int[] array) {

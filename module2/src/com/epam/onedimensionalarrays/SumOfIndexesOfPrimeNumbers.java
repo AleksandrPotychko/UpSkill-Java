@@ -1,6 +1,5 @@
 package com.epam.onedimensionalarrays;
-//Задана последовательность N вещественных чисел.
-//Вычислить сумму чисел, порядковые номера которых являются простыми числами.
+
 
 public class SumOfIndexesOfPrimeNumbers {
     public static int sumOfIndexesOfPrimeNumbers(int[] array) {
