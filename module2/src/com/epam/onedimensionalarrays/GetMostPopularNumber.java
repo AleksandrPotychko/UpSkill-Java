@@ -2,22 +2,22 @@ package com.epam.onedimensionalarrays;
 
 public class GetMostPopularNumber {
     public static int getMostPopularNumber(int[] array) {
-        int[] popular = new int[array.length];
+        int[] arrayCountOfPopularNumber = new int[array.length];
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length; j++) {
                 if (array[i] == array[j]) {
-                    popular[i]++;
+                    arrayCountOfPopularNumber[i]++;
                 }
             }
         }
         int mostPopularNumber = array[0];
-        int popResult = popular[0];
-        for (int i = 0; i < popular.length; i++) {
-            if (popular[i] > popResult) {
-                popResult = popular[i];
+        int comparativeVariable = arrayCountOfPopularNumber[0];
+        for (int i = 0; i < arrayCountOfPopularNumber.length; i++) {
+            if (arrayCountOfPopularNumber[i] > comparativeVariable) {
+                comparativeVariable = arrayCountOfPopularNumber[i];
                 mostPopularNumber = array[i];
             }
-            if ((popResult == popular[i]) && (array[i] < mostPopularNumber)) {
+            if ((comparativeVariable == arrayCountOfPopularNumber[i]) && (array[i] < mostPopularNumber)) {
                 mostPopularNumber = array[i];
             }
         }

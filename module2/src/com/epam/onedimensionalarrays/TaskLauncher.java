@@ -1,23 +1,27 @@
 package com.epam.onedimensionalarrays;
 
+import java.util.Arrays;
+
 public class TaskLauncher {
     public static void main(String[] args) {
-        int [] array= {7, -7, -7, 9, -4, 8, 4, 0};
-   //task 1  System.out.println(SumCalculatorOfNumbersDivisibleByK.countSum(array, 2));
+        int [] arrayNaturalNumbers= {7, 3, 2, 9, 4, 8, 4, 0};
+        System.out.println(SumCalculatorOfNumbersDivisibleByK.countSum(arrayNaturalNumbers, 2));
 
-  //task 2    System.out.println(CalculatorOfNumberOfReplacements.replaceElementsAndCountReplacements(array, 5));
+  System.out.println(CalculatorOfNumberOfReplacements.replaceElementsAndCountReplacements(arrayNaturalNumbers, 5));
 
-// task 3  String RealNumb = Arrays.toString(RealNumbersArrayAnalyser.characterizeArray(array,0, 0, 0));
-// task 3  System.out.println(RealNumb);
+ String arrayCharacteristic = Arrays.toString(RealNumbersArrayAnalyser.characterizeArray(arrayNaturalNumbers));
+ System.out.println(arrayCharacteristic);
 
-  //  task5   NumbersGreaterTheirIndex number = new NumbersGreaterTheirIndex();
-  //  task5   number.numbersGreaterTheirIndex(array);
+ NumbersGreaterTheirIndex number = new NumbersGreaterTheirIndex();
+ number.numbersGreaterTheirIndex(arrayNaturalNumbers);
 
-  //  task6   System.out.println(SumOfIndexesOfPrimeNumbers.sumOfIndexesOfPrimeNumbers(array));
+ System.out.println(SumOfIndexesOfPrimeNumbers.sumOfIndexesOfPrimeNumbers(arrayNaturalNumbers));
 
-  //  task7   System.out.println(CalculateNumbersOfFormula.calculateNumbersOfFormula(array));
-  //  task8   System.out.println(DeleteMinValueOfArray.deleteMinValue(array));
-  //  task9   System.out.println(GetMostPopularNumber.getMostPopularNumber(array));
+ System.out.println(CalculateNumbersOfFormula.calculateNumbersOfFormula(arrayNaturalNumbers));
+
+ System.out.println(DeleteMinValueOfArray.deleteMinValue(arrayNaturalNumbers));
+
+ System.out.println(GetMostPopularNumber.getMostPopularNumber(arrayNaturalNumbers));
 
     }
 }

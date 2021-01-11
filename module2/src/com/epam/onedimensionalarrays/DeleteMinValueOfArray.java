@@ -14,14 +14,14 @@ public class DeleteMinValueOfArray {
                 minCount++;
             }
         }
-        int[] newArray = new int[array.length - minCount];
+        int[] arrayWithoutMiniValue = new int[array.length - minCount];
         int indexResult = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] != min) {
-                newArray[indexResult] = array[i];
+                arrayWithoutMiniValue[indexResult] = array[i];
                 indexResult++;
             }
         }
-        return newArray;
+        return arrayWithoutMiniValue;
     }
 }
