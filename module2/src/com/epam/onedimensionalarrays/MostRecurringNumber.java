@@ -1,6 +1,6 @@
 package com.epam.onedimensionalarrays;
 
-public class GetMostPopularNumber {
+public class MostRecurringNumber {
     public static int getMostPopularNumber(int[] array) {
         int[] arrayCountOfPopularNumber = new int[array.length];
         for (int i = 0; i < array.length; i++) {
