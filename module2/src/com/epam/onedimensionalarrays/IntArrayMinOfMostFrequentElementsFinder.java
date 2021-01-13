@@ -1,7 +1,7 @@
 package com.epam.onedimensionalarrays;
 
-public class MostRecurringNumber {
-    public static int getMostPopularNumber(int[] array) {
+public class IntArrayMinOfMostFrequentElementsFinder {
+    public static int findMostPopularNumber(int[] array) {
         int[] arrayCountOfPopularNumber = new int[array.length];
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length; j++) {

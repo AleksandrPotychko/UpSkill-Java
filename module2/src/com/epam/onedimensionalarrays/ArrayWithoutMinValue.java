@@ -1,7 +1,7 @@
 package com.epam.onedimensionalarrays;
 
-public class DeleteMinValueOfArray {
-    public static int[] deleteMinValue(int[] array) {
+public class ArrayWithoutMinValue {
+    public static int[] findAndDeleteMinValue(int[] array) {
         int minCount = 0;
         int min = array[0];
         for (int i = 1; i < array.length; i++) {
