@@ -2,28 +2,15 @@ package com.epam.onedimensionalarrays;
 
 
 public class EverySecondElementEqualsZero {
-    public static void main(String[] args) {
-        int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-        int arrayIndex =0;
-        int arrayIndexAfterDeletingValue = 1;
-        int countDeletingValue = array.length;
-        while (arrayIndex < array.length){
-            if ( arrayIndex % 2 != 0) {
-                countDeletingValue --;
-                for (int j = arrayIndexAfterDeletingValue; j < countDeletingValue; j++) {
-                    array[j] = array[j + 1];
-                }
-                arrayIndexAfterDeletingValue ++;
-                arrayIndex ++;
-            } else {
-                arrayIndex ++;
-            }
+    public static double[] buildNewArray (double[] array) {
+        int currentWritingIndex = 0;
+        for (int currentReadingIndex = 0; currentReadingIndex < array.length; currentReadingIndex += 2,
+                currentWritingIndex++) {
+            array[currentWritingIndex] = array[currentReadingIndex];
         }
-        for (int i = countDeletingValue; i < array.length; i++) {
+        for (int i = (int) Math.round(array.length / 2.0); i < array.length; i++) {
             array[i] = 0;
         }
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + "\t");
-        }
+        return array;
     }
 }

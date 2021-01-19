@@ -14,7 +14,8 @@ public class TaskLauncher {
         number.numbersGreaterTheirIndex(arrayNaturalNumbers);
         System.out.println(SumCalculatorOfSequenceElementsWithPrimeIndexes.countSum(generatedNumbers));
         System.out.println(CalculateNumbersOfFormula.calculateNumbersOfFormula(arrayNaturalNumbers));
-        System.out.println(ArrayWithoutMinValue.findAndDeleteMinValue(arrayNaturalNumbers));
+        System.out.println(Arrays.toString(ArrayWithoutMinValue.findAndDeleteMinValue(arrayNaturalNumbers)));
         System.out.println(IntArrayMinOfMostFrequentElementsFinder.findMostPopularNumber(arrayNaturalNumbers));
+        System.out.println(Arrays.toString(EverySecondElementEqualsZero.buildNewArray(generatedNumbers)));
 }
 }
