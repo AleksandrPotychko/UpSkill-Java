@@ -1,5 +1,10 @@
 package com.epam.arraysofarrays;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
 public class MatrixWorker {
     //task 1
     public static boolean findOddColumnsWhereFirstElementGreaterThanLast(int[][]matrix) {
@@ -36,5 +41,46 @@ public class MatrixWorker {
             System.out.println(matrix[i][columnNumber]);
         }
         return true;
+    }
+    //task 8
+    public static void swapTwoAnyColumns(int[][] matrix) throws IOException {
+        System.out.println("Enter first column: ");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String stringM = reader.readLine();
+        int first = Integer.parseInt(stringM);
+
+        System.out.println("Enter second column: ");
+        String stringN = reader.readLine();
+        int second = Integer.parseInt(stringN);
+        for (int i = 0; i < matrix.length; i++) {
+            int x = matrix[i][first - 1];
+            matrix[i][first - 1] = matrix[i][second - 1];
+            matrix[i][second - 1] = x;
+            System.out.println(Arrays.toString(matrix[i]));
+        }
+    }
+    //task 9
+    public static int calculateColumnWithLargestSum(int[][] matrix ) {
+        int largestSum = 0;
+        for (int i = 0; i < matrix.length; i++) {
+            int sumColumn = 0;
+            for (int[] ints : matrix) {
+                sumColumn = sumColumn + ints[i];
+                if (sumColumn > largestSum) {
+                    largestSum = sumColumn;
+                }
+            }
+        }
+        return largestSum;
+    }
+    //task 10
+        public static boolean calculatePositiveElementsOfMainDiagonal(int[][] matrix) {
+            System.out.print("Positive elements of main diagonal = ");
+            for (int i = 0; i < matrix.length; i++) {
+                if (matrix[i][i] >= 0) {
+                    System.out.print(matrix[i][i] + "\t");
+                }
+            }
+            return true;
     }
 }
