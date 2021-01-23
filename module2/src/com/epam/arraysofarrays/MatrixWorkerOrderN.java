@@ -15,7 +15,6 @@ public class MatrixWorkerOrderN {
         }
         return matrix;
     }
-
     // task 5
     public static int[][] createMatrixForTaskFive(int orderN) {
         int [][] matrix = new int[orderN][orderN];
@@ -30,7 +29,6 @@ public class MatrixWorkerOrderN {
         }
         return matrix;
     }
-
     // task 6
     public static int[][] createMatrixForTaskSix(int orderN) {
         int [][] matrix = new int[orderN][orderN];
@@ -54,7 +52,6 @@ public class MatrixWorkerOrderN {
         }
         return matrix;
     }
-
     //task 7
     public static int createSquareMatrixAndCalculatePositiveElements(int orderN) {
         int positiveElements = 0;
