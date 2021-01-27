@@ -1,71 +1,55 @@
 package com.epam.arraysofarrays;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
 
 public class MatrixWorker {
     //task 1
-    public static boolean findOddColumnsWhereFirstElementGreaterThanLast(int[][]matrix) {
-        for (int j = 0; j < 5; j++) {
-            for (int i = 0; i < 5; i += 2) {
-                if (matrix[0][i] > matrix[4][i]) {
+    public static void findOddColumnsWhereFirstElementGreaterThanLast(int[][] matrix) {
+        for (int j = 0; j < matrix[0].length; j++) {
+            for (int i = 0; i < matrix.length; i += 2) {
+                if (matrix[0][i] > matrix[matrix.length - 1][i]) {
                     System.out.print(matrix[j][i] + "\t");
                 }
             }
             System.out.println();
         }
-        return true;
     }
     //task 2
-    public static boolean findElementsTheMainDiagonal(int[][] matrix) {
+    public static void findElementsTheMainDiagonal(int[][] matrix) {
         System.out.print("Elements standing on the diagonal = ");
-        for( int i = 0; i < 5; i++) {
+        for (int i = 0; i < matrix.length; i++) {
             System.out.print(matrix[i][i] + "\t");
         }
-        return true;
     }
     //task 3
-    public static boolean outputGivenRowAndColumn(int[][] matrix, int row, int column) {
-
+    public static void printRowAndColumn(int[][] matrix, int row, int column) {
         int rowNumber = row - 1;
         System.out.print("Row №" + row + " = ");
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < matrix[0].length; i++) {
             System.out.print(matrix[rowNumber][i] + "\t");
         }
         System.out.println();
         int columnNumber = column - 1;
         System.out.println("Column №" + column + " :");
-        for (int i = 0; i < 5; i++) {
-            System.out.println(matrix[i][columnNumber]);
+        for (int[] number : matrix) {
+            System.out.println(number[columnNumber]);
         }
-        return true;
     }
     //task 8
-    public static void swapTwoAnyColumns(int[][] matrix) throws IOException {
-        System.out.println("Enter first column: ");
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String stringM = reader.readLine();
-        int first = Integer.parseInt(stringM);
-
-        System.out.println("Enter second column: ");
-        String stringN = reader.readLine();
-        int second = Integer.parseInt(stringN);
+    public static int[][] swapTwoAnyColumns(int[][] matrix, int first, int second){
         for (int i = 0; i < matrix.length; i++) {
             int x = matrix[i][first - 1];
             matrix[i][first - 1] = matrix[i][second - 1];
             matrix[i][second - 1] = x;
-            System.out.println(Arrays.toString(matrix[i]));
         }
+        return matrix;
     }
-    //task 9
-    public static int calculateColumnWithLargestSum(int[][] matrix ) {
+    //task 9 notFixed
+    public static int calculateColumnWithLargestSum(int[][] matrix) {
         int largestSum = 0;
         for (int i = 0; i < matrix.length; i++) {
             int sumColumn = 0;
-            for (int[] ints : matrix) {
-                sumColumn = sumColumn + ints[i];
+            for (int[] number : matrix) {
+                sumColumn = sumColumn + number[i];
                 if (sumColumn > largestSum) {
                     largestSum = sumColumn;
                 }
@@ -74,13 +58,16 @@ public class MatrixWorker {
         return largestSum;
     }
     //task 10
-        public static boolean calculatePositiveElementsOfMainDiagonal(int[][] matrix) {
-            System.out.print("Positive elements of main diagonal = ");
-            for (int i = 0; i < matrix.length; i++) {
-                if (matrix[i][i] >= 0) {
-                    System.out.print(matrix[i][i] + "\t");
-                }
+    public static int[] calculatePositiveElementsOfMainDiagonal(int[][] matrix) {
+        System.out.print("Positive elements of main diagonal = ");
+        int[] newMatrix = new int[matrix.length];
+        int j = 0;
+        for (int i = 0; i < matrix.length; i++) {
+            if (matrix[i][i] >= 0) {
+                newMatrix[j] = matrix[i][i];
+                j++;
             }
-            return true;
+        }
+        return newMatrix;
     }
 }
