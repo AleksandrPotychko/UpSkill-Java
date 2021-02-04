@@ -1,15 +1,18 @@
 package com.epam.arraysofarrays;
 
 public class MatrixBuilder {
-    //task 4 notFixed
-    public static  int[][] buildMatrixAccordingToPattern(int n) {
-        int[][] matrix = new int[n][n];
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if (i % 2 ==0) {
+    //task 4
+    public static  int[][] buildMatrixAccordingToPattern(int orderOfMatrix) {
+        int[][] matrix = new int[orderOfMatrix][orderOfMatrix];
+        for (int i = 0; i < orderOfMatrix; i++) {
+            boolean isOddRow = i % 2 == 0;
+            if (isOddRow) {
+                for (int j = 0; j < orderOfMatrix; j++) {
                     matrix[i][j] = j + 1;
-                } else {
-                    matrix[i][j] = n - j;
+                }
+            } else {
+                for (int j = 0; j < orderOfMatrix; j++) {
+                    matrix[i][j] = orderOfMatrix - j;
                 }
             }
         }
@@ -30,8 +33,7 @@ public class MatrixBuilder {
     // task 6
     public static int[][] buildMatrixForTaskSix(int n) {
         int[][] matrix = new int[n][n];
-        int halfMatrixLength = n / 2;
-        final int rowBeforeMiddle = halfMatrixLength - 1;
+        final int rowBeforeMiddle = n / 2 - 1;
         int numberOfZeros = 0;
         for (int i = 0; i < matrix.length; i++) {
             for (int j = numberOfZeros; j < (matrix[i].length - numberOfZeros); j++) {
@@ -52,7 +54,7 @@ public class MatrixBuilder {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 matrix[i][j] = Math.sin((Math.pow(i, 2) - Math.pow(j, 2)) / n);
-                if (matrix[i][j] >= 0) {
+                if (matrix[i][j] > 0) {
                     positiveElements++;
                 }
             }

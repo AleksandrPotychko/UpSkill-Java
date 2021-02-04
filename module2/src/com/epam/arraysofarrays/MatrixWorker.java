@@ -15,9 +15,10 @@ public class MatrixWorker {
     }
     //task 2
     public static void findElementsTheMainDiagonal(int[][] matrix) {
-        System.out.print("Elements standing on the diagonal = ");
-        for (int i = 0; i < matrix.length; i++) {
+        System.out.print("Elements standing on two diagonals = ");
+        for (int i = 0, j = matrix.length - 1; i < matrix.length; i++, j--) {
             System.out.print(matrix[i][i] + "\t");
+            System.out.print(matrix[i][j] + "\t");
         }
     }
     //task 3
@@ -35,16 +36,15 @@ public class MatrixWorker {
         }
     }
     //task 8
-    public static int[][] swapTwoAnyColumns(int[][] matrix, int first, int second){
+    public static void swapTwoAnyColumns(int[][] matrix, int first, int second){
         for (int i = 0; i < matrix.length; i++) {
             int x = matrix[i][first - 1];
             matrix[i][first - 1] = matrix[i][second - 1];
             matrix[i][second - 1] = x;
         }
-        return matrix;
     }
-    //task 9 notFixed
-    public static int calculateColumnWithLargestSum(int[][] matrix) {
+    //task 9
+    public static void calculateColumnWithLargestSum(int[][] matrix) {
         int largestSum = 0;
         for (int i = 0; i < matrix.length; i++) {
             int sumColumn = 0;
@@ -55,19 +55,27 @@ public class MatrixWorker {
                 }
             }
         }
-        return largestSum;
+        for (int i = 0; i < matrix.length; i++) {
+            int sumColumn = 0;
+            for (int[] number : matrix) {
+                sumColumn = sumColumn + number[i];
+                if (sumColumn == largestSum) {
+                    System.out.println("Column with largest sum: " + (i + 1));
+                }
+            }
+        }
     }
     //task 10
     public static int[] calculatePositiveElementsOfMainDiagonal(int[][] matrix) {
         System.out.print("Positive elements of main diagonal = ");
-        int[] newMatrix = new int[matrix.length];
-        int j = 0;
+        int[] positiveElementsOfMainDiagonal = new int[matrix.length];
+        int countPositiveElements = 0;
         for (int i = 0; i < matrix.length; i++) {
             if (matrix[i][i] >= 0) {
-                newMatrix[j] = matrix[i][i];
-                j++;
+                positiveElementsOfMainDiagonal[countPositiveElements] = matrix[i][i];
+                countPositiveElements++;
             }
         }
-        return newMatrix;
+        return positiveElementsOfMainDiagonal;
     }
 }

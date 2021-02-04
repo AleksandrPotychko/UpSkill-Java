@@ -13,20 +13,20 @@ public class TaskLauncher {
     public static void main(String[] args) throws IOException {
         //task 1
         MatrixWorker.findOddColumnsWhereFirstElementGreaterThanLast(MatrixInitializer.
-                randomSquareMatrixWithPositiveAndNegativeElements(MATRIX_ORDER));
+                buildRandomSquareMatrixWithPositiveAndNegativeElements(MATRIX_ORDER));
 
         //task 2
         MatrixWorker.findElementsTheMainDiagonal(MatrixInitializer.
-                randomSquareMatrixWithPositiveAndNegativeElements(MATRIX_ORDER));
+                buildRandomSquareMatrixWithPositiveAndNegativeElements(MATRIX_ORDER));
 
         //task 3
         MatrixWorker.printRowAndColumn(MatrixInitializer.
-                randomSquareMatrixWithPositiveAndNegativeElements(MATRIX_ORDER), ROW, COLUMN);
+                buildRandomSquareMatrixWithPositiveAndNegativeElements(MATRIX_ORDER), ROW, COLUMN);
 
         //task 4
         System.out.println(Arrays.deepToString(MatrixBuilder.buildMatrixAccordingToPattern(MATRIX_ORDER)));
 
-       //task 5
+        //task 5
         System.out.println(Arrays.deepToString(MatrixBuilder.buildMatrixForTaskFive(MATRIX_ORDER)));
 
         //task 6
@@ -44,16 +44,16 @@ public class TaskLauncher {
         System.out.println("Enter second column: ");
         String stringN = reader.readLine();
         int second = Integer.parseInt(stringN);
-        System.out.println(Arrays.deepToString(MatrixWorker.swapTwoAnyColumns(MatrixInitializer.
-                randomSquareMatrixWithPositiveElements(MATRIX_ORDER), first, second)));
+        MatrixWorker.swapTwoAnyColumns(MatrixInitializer.
+               buildRandomSquareMatrixWithPositiveElements(MATRIX_ORDER), first, second);
 
         //task 9
-        System.out.println(MatrixWorker.calculateColumnWithLargestSum(MatrixInitializer.
-                randomSquareMatrixWithPositiveElements(MATRIX_ORDER)));
+        MatrixWorker.calculateColumnWithLargestSum(MatrixInitializer.
+                buildRandomSquareMatrixWithPositiveElements(MATRIX_ORDER));
 
         //task 10
         System.out.println(Arrays.toString(MatrixWorker.calculatePositiveElementsOfMainDiagonal(MatrixInitializer.
-                randomSquareMatrixWithPositiveAndNegativeElements(MATRIX_ORDER))));
+                buildRandomSquareMatrixWithPositiveAndNegativeElements(MATRIX_ORDER))));
 
         //task 11
       // MatrixTaskEleven.matrixTaskEleven(MatrixInitializer.randomMatrix10x20(10,20));
