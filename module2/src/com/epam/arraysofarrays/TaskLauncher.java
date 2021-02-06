@@ -13,7 +13,7 @@ public class TaskLauncher {
     public static void main(String[] args) throws IOException {
         //task 1
         MatrixWorker.findOddColumnsWhereFirstElementGreaterThanLast(MatrixInitializer.
-                buildRandomSquareMatrixWithPositiveAndNegativeElements(MATRIX_ORDER));
+               buildRandomSquareMatrixWithPositiveAndNegativeElements(MATRIX_ORDER));
 
         //task 2
         MatrixWorker.findElementsTheMainDiagonal(MatrixInitializer.
@@ -54,8 +54,34 @@ public class TaskLauncher {
         //task 10
         System.out.println(Arrays.toString(MatrixWorker.calculatePositiveElementsOfMainDiagonal(MatrixInitializer.
                 buildRandomSquareMatrixWithPositiveAndNegativeElements(MATRIX_ORDER))));
-
         //task 11
-      // MatrixTaskEleven.matrixTaskEleven(MatrixInitializer.randomMatrix10x20(10,20));
+        System.out.println(Arrays.deepToString(MatrixWorker.matrixTaskEleven(MatrixInitializer.
+                buildRandomMatrix10x20(10, 20))));
+
+        //task 12 Ascending
+        System.out.println(Arrays.deepToString(MatrixSorter.sortRowsAscendingOrder(MatrixInitializer.
+                buildRandomSquareMatrixWithPositiveAndNegativeElements(MATRIX_ORDER))));
+
+        //task 12 Descending
+        System.out.println(Arrays.deepToString(MatrixSorter.sortRowsDescendingOrder(MatrixInitializer.
+                buildRandomSquareMatrixWithPositiveAndNegativeElements(MATRIX_ORDER))));
+
+        //task 13 Ascending
+        System.out.println(Arrays.deepToString(MatrixSorter.sortColumnsAscendingOrder(MatrixInitializer.
+                buildRandomSquareMatrixWithPositiveAndNegativeElements(MATRIX_ORDER))));
+
+        //task 13 Ascending
+        System.out.println(Arrays.deepToString(MatrixSorter.sortColumnsDescendingOrder(MatrixInitializer.
+                buildRandomSquareMatrixWithPositiveAndNegativeElements(MATRIX_ORDER))));
+
+        //task 14
+        MatrixBuilder.buildMatrixMxN(ROW,COLUMN);
+
+        //task 15
+        MatrixSorter.findMaxMatrixElementAndReplaceItNegativeNumbers(MatrixInitializer.
+                buildRandomSquareMatrixWithPositiveAndNegativeElements(MATRIX_ORDER));
+
+        //task 16
+        MatrixBuilder.buildMagicSquare(ROW);
     }
 }
