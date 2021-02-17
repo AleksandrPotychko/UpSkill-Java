@@ -36,7 +36,7 @@ public class MatrixWorker {
         }
     }
     //task 8
-    public static void swapTwoAnyColumns(int[][] matrix, int first, int second){
+    public static void swapTwoAnyColumns(int[][] matrix, int first, int second) {
         for (int i = 0; i < matrix.length; i++) {
             int x = matrix[i][first - 1];
             matrix[i][first - 1] = matrix[i][second - 1];
@@ -44,7 +44,8 @@ public class MatrixWorker {
         }
     }
     //task 9
-    public static void calculateColumnWithLargestSum(int[][] matrix) {
+    public static int[] calculateColumnWithLargestSum(int[][] matrix) {
+        int[] columnsWithLargestSum = new int[matrix.length];
         int largestSum = 0;
         for (int i = 0; i < matrix.length; i++) {
             int sumColumn = 0;
@@ -57,17 +58,19 @@ public class MatrixWorker {
         }
         for (int i = 0; i < matrix.length; i++) {
             int sumColumn = 0;
+            int countColumns = 0;
             for (int[] number : matrix) {
                 sumColumn = sumColumn + number[i];
                 if (sumColumn == largestSum) {
-                    System.out.println("Column with largest sum: " + (i + 1));
+                    columnsWithLargestSum[countColumns] = i + 1;
+                    countColumns++;
                 }
             }
         }
+        return columnsWithLargestSum;
     }
     //task 10
     public static int[] calculatePositiveElementsOfMainDiagonal(int[][] matrix) {
-        System.out.print("Positive elements of main diagonal = ");
         int[] positiveElementsOfMainDiagonal = new int[matrix.length];
         int countPositiveElements = 0;
         for (int i = 0; i < matrix.length; i++) {
@@ -79,17 +82,20 @@ public class MatrixWorker {
         return positiveElementsOfMainDiagonal;
     }
     //task 11
-    public static int[][] matrixTaskEleven(int[][] matrix) {
-        for (int i = 0; i < 10; i++) {
+    public static int[] buildMatrixOfTaskEleventh(int[][] matrix, int minimumNumberOfMatches,int searchNumber) {
+        int[] calculatedRows = new int[matrix.length];
+        int countRows = 0;
+        for (int i = 0; i < matrix.length; i++) {
             int count = 0;
-            for (int j = 0; j < 20; j++) {
-                if (matrix[i][j] == 5) count += 1;
+            for (int j = 0; j < matrix[0].length; j++) {
+                if (matrix[i][j] == searchNumber)
+                    count += 1;
             }
-            if (count >= 3) {
-                int k = i + 1;
-                System.out.println("A row with more than three 5 : " + k);
+            if (count >= minimumNumberOfMatches) {
+                calculatedRows[countRows] = i + 1;
+                countRows++;
             }
         }
-        return matrix;
+        return calculatedRows;
     }
 }

@@ -9,19 +9,23 @@ public class TaskLauncher {
     private static final int ROW = 3;
     private static final int COLUMN = 2;
     private static final int MATRIX_ORDER = 6;
+    private static final int MIN_BORDER = 50;
+    private static final int MAX_BORDER = 100;
+    private static final int MINIMUM_NUMBER_OF_MATCHES = 3;
+    private static final int SEARCH_NUMBER = 5;
 
     public static void main(String[] args) throws IOException {
-        //task 1
+       //task 1
         MatrixWorker.findOddColumnsWhereFirstElementGreaterThanLast(MatrixInitializer.
-               buildRandomSquareMatrixWithPositiveAndNegativeElements(MATRIX_ORDER));
+               buildRandomSquareMatrix(MATRIX_ORDER, MIN_BORDER, MAX_BORDER));
 
         //task 2
         MatrixWorker.findElementsTheMainDiagonal(MatrixInitializer.
-                buildRandomSquareMatrixWithPositiveAndNegativeElements(MATRIX_ORDER));
+                buildRandomSquareMatrix(MATRIX_ORDER, MIN_BORDER, MAX_BORDER));
 
         //task 3
         MatrixWorker.printRowAndColumn(MatrixInitializer.
-                buildRandomSquareMatrixWithPositiveAndNegativeElements(MATRIX_ORDER), ROW, COLUMN);
+                buildRandomSquareMatrix(MATRIX_ORDER, MIN_BORDER, MAX_BORDER), ROW, COLUMN);
 
         //task 4
         System.out.println(Arrays.deepToString(MatrixBuilder.buildMatrixAccordingToPattern(MATRIX_ORDER)));
@@ -45,41 +49,33 @@ public class TaskLauncher {
         String stringN = reader.readLine();
         int second = Integer.parseInt(stringN);
         MatrixWorker.swapTwoAnyColumns(MatrixInitializer.
-               buildRandomSquareMatrixWithPositiveElements(MATRIX_ORDER), first, second);
+               buildRandomSquareMatrix(MATRIX_ORDER, 0, MAX_BORDER), first, second);
 
         //task 9
-        MatrixWorker.calculateColumnWithLargestSum(MatrixInitializer.
-                buildRandomSquareMatrixWithPositiveElements(MATRIX_ORDER));
+        System.out.println(Arrays.toString(MatrixWorker.calculateColumnWithLargestSum(MatrixInitializer.
+                buildRandomSquareMatrix(MATRIX_ORDER, 0, MAX_BORDER))));
 
         //task 10
         System.out.println(Arrays.toString(MatrixWorker.calculatePositiveElementsOfMainDiagonal(MatrixInitializer.
-                buildRandomSquareMatrixWithPositiveAndNegativeElements(MATRIX_ORDER))));
+                buildRandomSquareMatrix(MATRIX_ORDER, MIN_BORDER, MAX_BORDER))));
         //task 11
-        System.out.println(Arrays.deepToString(MatrixWorker.matrixTaskEleven(MatrixInitializer.
-                buildRandomMatrix10x20(10, 20))));
+        System.out.println(Arrays.toString(MatrixWorker.buildMatrixOfTaskEleventh(MatrixInitializer.
+                buildRandomMatrixForEleventhTask(10, 20), MINIMUM_NUMBER_OF_MATCHES, SEARCH_NUMBER)));
 
-        //task 12 Ascending
-        System.out.println(Arrays.deepToString(MatrixSorter.sortRowsAscendingOrder(MatrixInitializer.
-                buildRandomSquareMatrixWithPositiveAndNegativeElements(MATRIX_ORDER))));
+        //task 12
+        System.out.println(Arrays.deepToString(MatrixSorter.sortRowsAscendingOrDescending(MatrixInitializer.
+                buildRandomSquareMatrix(MATRIX_ORDER, MIN_BORDER, MAX_BORDER), true)));
 
-        //task 12 Descending
-        System.out.println(Arrays.deepToString(MatrixSorter.sortRowsDescendingOrder(MatrixInitializer.
-                buildRandomSquareMatrixWithPositiveAndNegativeElements(MATRIX_ORDER))));
-
-        //task 13 Ascending
-        System.out.println(Arrays.deepToString(MatrixSorter.sortColumnsAscendingOrder(MatrixInitializer.
-                buildRandomSquareMatrixWithPositiveAndNegativeElements(MATRIX_ORDER))));
-
-        //task 13 Ascending
-        System.out.println(Arrays.deepToString(MatrixSorter.sortColumnsDescendingOrder(MatrixInitializer.
-                buildRandomSquareMatrixWithPositiveAndNegativeElements(MATRIX_ORDER))));
+        //task 13
+        System.out.println(Arrays.deepToString(MatrixSorter.sortColumnsAscendingOrDescending(MatrixInitializer.
+                buildRandomSquareMatrix(MATRIX_ORDER, MIN_BORDER, MAX_BORDER), false)));
 
         //task 14
-        MatrixBuilder.buildMatrixMxN(ROW,COLUMN);
+        MatrixBuilder.buildRandomMatrixOfZerosAndOnes(MATRIX_ORDER);
 
         //task 15
-        MatrixSorter.findMaxMatrixElementAndReplaceItNegativeNumbers(MatrixInitializer.
-                buildRandomSquareMatrixWithPositiveAndNegativeElements(MATRIX_ORDER));
+        MatrixSorter.replaceOddNumbersOnMaxElement(MatrixInitializer.
+                buildRandomSquareMatrix(MATRIX_ORDER, MIN_BORDER, MAX_BORDER));
 
         //task 16
         MatrixBuilder.buildMagicSquare(ROW);

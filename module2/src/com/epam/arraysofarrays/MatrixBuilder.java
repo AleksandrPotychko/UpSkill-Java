@@ -47,7 +47,7 @@ public class MatrixBuilder {
         }
         return matrix;
     }
-    //task 7 notFixed
+    //task 7
     public static int buildMatrixAndCalculatePositiveElements(int orderOfMatrix) {
         int positiveElements = 0;
         double[][] matrix = new double[orderOfMatrix][orderOfMatrix];
@@ -62,11 +62,13 @@ public class MatrixBuilder {
         return positiveElements;
     }
     //task 14
-    public static void buildMatrixMxN(int rows, int columns) {
+    public static void buildRandomMatrixOfZerosAndOnes(int border) {
+        int rows = (int) (Math.random() * border);
+        int columns = (int) (Math.random() * border);
         int[][] matrix = new int[rows][columns];
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                if( i <= j )  {
+                if (i <= j)  {
                     matrix[i][j] = 1;
                 } else {
                     matrix[i][j] = 0;
@@ -77,39 +79,32 @@ public class MatrixBuilder {
         }
     }
     // task 16
-    public static void buildMagicSquare(int orderOfMatrix){
-        int[][] magicSquare = new int[orderOfMatrix][orderOfMatrix];
-        int number = 1;
-        int row = 0;
-        int column = orderOfMatrix / 2;
-        int currRow;
-        int currColumn;
-        while (number <= orderOfMatrix * orderOfMatrix) {
-            magicSquare[row][column] = number;
-            number++;
-            currRow = row;
-            currColumn = column;
-            row -= 1;
-            column += 1;
-            if (row == -1) {
-                row = orderOfMatrix - 1;
-            }
-            if (column == orderOfMatrix) {
-                column = 0;
-            }
-            if (magicSquare[row][column] != 0) {
-                row = currRow + 1;
-                column = currColumn;
-                if (row == -1) {
-                    row = orderOfMatrix - 1;
+    public static int[][] buildMagicSquare(int orderOfMatrix){
+        int MIN_POSSIBLE_ORDER = 3;
+        int[][] magicSquare = null;
+        final boolean isOrderOfMatrixOddNumber = orderOfMatrix % 2 != 0;
+        if (orderOfMatrix >= MIN_POSSIBLE_ORDER && isOrderOfMatrixOddNumber) {
+            magicSquare = new int[orderOfMatrix][orderOfMatrix];
+            final int maxValue = (int) Math.pow(orderOfMatrix, 2);
+            final int lastIndex = orderOfMatrix - 1;
+            int i = 0;
+            int j = orderOfMatrix / 2; // the middle column
+            int filler = 1; // the start value
+            while (filler <= maxValue) {
+                if (i < 0 && j <= lastIndex) {
+                    i = lastIndex;
+                } else if (i >= 0 && j > lastIndex) {
+                    j = 0;
+                } else if ( (i < 0 && j > lastIndex) || (magicSquare[i][j] != 0) ) {
+                    i += 2;
+                    j--;
                 }
+                magicSquare[i][j] = filler;
+                filler++;
+                i--;
+                j++;
             }
         }
-        for (int i = 0; i < magicSquare.length; i++) {
-            for (int j = 0; j < magicSquare.length; j++) {
-                System.out.print(magicSquare[i][j] + " ");
-            }
-            System.out.println();
-        }
+        return magicSquare;
     }
 }
