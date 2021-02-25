@@ -62,21 +62,23 @@ public class MatrixBuilder {
         return positiveElements;
     }
     //task 14
-    public static void buildRandomMatrixOfZerosAndOnes(int border) {
-        int rows = (int) (Math.random() * border);
-        int columns = (int) (Math.random() * border);
-        int[][] matrix = new int[rows][columns];
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                if (i <= j)  {
-                    matrix[i][j] = 1;
-                } else {
-                    matrix[i][j] = 0;
+    public static int[][] buildMatrixAccordingToPattern4(int numberOfRows, int numberOfColumns) {
+        int[][] matrix = null;
+        if (numberOfRows >= numberOfColumns && numberOfColumns > 1) {
+            matrix = new int[numberOfRows][numberOfColumns];
+            int randomRow;
+            for (int j = 1; j < numberOfColumns; j++) {
+                int counterOfOnes = j;
+                while (counterOfOnes > 0) {
+                    randomRow = (int) (Math.random() * numberOfRows);
+                    if (matrix[randomRow][j] != 1) {
+                        matrix[randomRow][j] = 1;
+                        counterOfOnes--;
+                    }
                 }
-                System.out.print(matrix[i][j] + "\t");
             }
-            System.out.println();
         }
+        return matrix;
     }
     // task 16
     public static int[][] buildMagicSquare(int orderOfMatrix){

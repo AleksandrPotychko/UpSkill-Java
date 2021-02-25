@@ -63,15 +63,15 @@ public class TaskLauncher {
                 buildRandomMatrixForEleventhTask(10, 20), MINIMUM_NUMBER_OF_MATCHES, SEARCH_NUMBER)));
 
         //task 12
-        System.out.println(Arrays.deepToString(MatrixSorter.sortRowsAscendingOrDescending(MatrixInitializer.
-                buildRandomSquareMatrix(MATRIX_ORDER, MIN_BORDER, MAX_BORDER), true)));
+        MatrixSorter.sortRows(MatrixInitializer.
+                buildRandomSquareMatrix(MATRIX_ORDER, MIN_BORDER, MAX_BORDER),true);
 
         //task 13
-        System.out.println(Arrays.deepToString(MatrixSorter.sortColumnsAscendingOrDescending(MatrixInitializer.
-                buildRandomSquareMatrix(MATRIX_ORDER, MIN_BORDER, MAX_BORDER), false)));
+        MatrixSorter.sortColumns(MatrixInitializer.
+                buildRandomSquareMatrix(MATRIX_ORDER, MIN_BORDER, MAX_BORDER), false);
 
         //task 14
-        MatrixBuilder.buildRandomMatrixOfZerosAndOnes(MATRIX_ORDER);
+        MatrixBuilder.buildMatrixAccordingToPattern4(ROW,COLUMN);
 
         //task 15
         MatrixSorter.replaceOddNumbersOnMaxElement(MatrixInitializer.
