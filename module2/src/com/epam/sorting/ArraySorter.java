@@ -3,24 +3,26 @@ package com.epam.sorting;
 public class ArraySorter {
 
     //task 1
-    public static void insertArrayIntoArray(int[] array, int[] insertionArray, int insertIndexIntoArray) {
-        int [] summaryArray = new int[array.length + insertionArray.length];
-
-        for (int i = 0; i < (summaryArray.length - insertionArray.length + 1); i ++) {
-            if ( i < insertIndexIntoArray) {
-                summaryArray[i] = array[i];
-            } else if (i == insertIndexIntoArray) {
-                for (int j = 0; j < insertionArray.length; j++) {
-                    summaryArray[i + j] = insertionArray[j];
-                }
-            } else if (i > insertIndexIntoArray) {
-                summaryArray[i + insertionArray.length - 1] = array[i - 1];
+    public static int[] insertArrayIntoArray(int[] firstArray, int[] secondArray, int insertionIndex) {
+        int[] concatenatedArray = null;
+        if (insertionIndex > 0 && insertionIndex < firstArray.length - 1) {
+            concatenatedArray = new int[firstArray.length + secondArray.length];
+            int indexOfWriting = 0;
+            for (int i = 0; i <= insertionIndex; i++) {
+                concatenatedArray[indexOfWriting++] = firstArray[i];
+            }
+            for (int i = 0; i < secondArray.length; i++) {
+                concatenatedArray[indexOfWriting++] = secondArray[i];
+            }
+            for (int i = insertionIndex + 1; i < firstArray.length; i++) {
+                concatenatedArray[indexOfWriting++] = firstArray[i];
             }
         }
+        return concatenatedArray;
     }
 
     // task 2
-    public static void applySelectionSort(int[] array) {
+    public static int[] applySelectionSort(int[] array) {
         for (int i = 0; i < array.length-1; i++) {
             int minimalNumber = i;
             for (int j = i + 1; j < array.length; j++) {
@@ -32,10 +34,11 @@ public class ArraySorter {
             array[i] = array[minimalNumber];
             array[minimalNumber] = temp;
         }
+        return array;
     }
 
     //task 3
-    public static void applyBubbleSort(int[] array) {
+    public static int[] applyBubbleSort(int[] array) {
         boolean isSorted = false;
         while (!isSorted) {
             isSorted = true;
@@ -48,21 +51,25 @@ public class ArraySorter {
                 }
             }
         }
+        return array;
     }
 
     //task 4
-    public static void applyInsertionSort(int[] array) {
+    public static int[] applyInsertionSort(int[] array) {
         for (int i = 1; i < array.length; i++) {
-            for (int j = i; array[j - 1] > array[j]; j--) {
-                int temp = array[j - 1];
-                array[j - 1] = array[j];
-                array[j] = temp;
+            for (int j = i; j < array.length; j++) {
+                if (array[j - 1] > array[j]) {
+                    int temp = array[j - 1];
+                    array[j - 1] = array[j];
+                    array[j] = temp;
+                }
             }
         }
+        return array;
     }
 
     //task 5
-    public static void applyShellSort(int[] array) {
+    public static int[] applyShellSort(int[] array) {
         for (int step = array.length / 2; step > 0 ; step /= 2) {
             for (int i = step; i < array.length; i++) {
                 for (int j = i - step; j >= 0 && array[j] > array[j + step]; j -= step) {
@@ -72,5 +79,6 @@ public class ArraySorter {
                 }
             }
         }
+        return array;
     }
 }

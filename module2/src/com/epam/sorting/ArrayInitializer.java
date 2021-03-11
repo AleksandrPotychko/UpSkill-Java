@@ -5,6 +5,7 @@ public class ArrayInitializer {
         int[] array = new int[lengthArray];
         for (int i = 0; i < array.length; i++) {
             array[i] = ((int) (Math.random() * maxBorder) - minBorder);
-        } return array;
+        }
+        return array;
     }
 }
