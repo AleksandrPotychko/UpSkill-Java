@@ -12,7 +12,6 @@ public class TaskLauncher {
     private static final int SECOND_NUMBER = 18;
     private static final int THIRD_NUMBER = 25;
     private static final int FOURTH_NUMBER = 30;
-    private static final double AMOUNT_OF_CORNERS = 6.0;
     private static final double SIZE_HEXAGON = 10.0;
     private static final double[] COORDINATES_OF_POINTS = {5, 7, 2, 3, 15, 7, 12, 20};
     private static final int INDEX_NUMBER = 2;
@@ -25,44 +24,43 @@ public class TaskLauncher {
 
     public static void main(String[] args) {
         //task 1
-        System.out.println(LogicBuilder.findLeastCommonMultiple(FIRST_NUMBER, SECOND_NUMBER));
+        System.out.println(NumbersAnalyzer.findLeastCommonMultiple(FIRST_NUMBER, SECOND_NUMBER));
 
         //task 2
-        System.out.println(LogicBuilder.
-                findLeastCommonMultipleForFourNumbers(FIRST_NUMBER, SECOND_NUMBER, THIRD_NUMBER, FOURTH_NUMBER));
+        System.out.println(NumbersAnalyzer.
+                findLeastCommonMultiple(FIRST_NUMBER, SECOND_NUMBER, THIRD_NUMBER, FOURTH_NUMBER));
 
         //task 3
-        System.out.println(LogicBuilder.findHexagonArea(SIZE_HEXAGON, AMOUNT_OF_CORNERS));
+        System.out.println(GeometricalCalculator.findHexagonArea(SIZE_HEXAGON));
 
         //task 4
-        System.out.println(LogicBuilder.findGreatestDistance(COORDINATES_OF_POINTS));
+        System.out.println(GeometricalCalculator.findGreatestDistance(COORDINATES_OF_POINTS));
 
         //task 5
-        System.out.println(LogicBuilder.findSecondLargestNumber(ArrayInitializer.
+        System.out.println(NumbersAnalyzer.findSecondLargestNumber(ArrayInitializer.
                 buildArray(LENGTH_ARRAY, MIN_BORDER, MAX_BORDER), INDEX_NUMBER));
 
         //task 6
-        System.out.println(LogicBuilder.checkThreeNumbersMutuallyPrime(FIRST_NUMBER,SECOND_NUMBER,THIRD_NUMBER));
+        System.out.println(NumbersAnalyzer.checkThreeNumbersMutuallyPrime(FIRST_NUMBER,SECOND_NUMBER,THIRD_NUMBER));
 
         //task 7
-        System.out.println(LogicBuilder.calculateSumFactorialsOddNumbers(MIN_BORDER, MAX_BORDER));
+        System.out.println(NumbersAnalyzer.calculateSumFactorialsOddNumbers(MIN_BORDER, MAX_BORDER));
 
         //task 8
-        System.out.println(LogicBuilder.calculateSumThreeConsecutiveElementsOfArray(ArrayInitializer.
+        System.out.println(NumbersAnalyzer.calculateSumThreeConsecutiveElementsOfArray(ArrayInitializer.
                 buildArray(LENGTH_ARRAY, MIN_BORDER, MAX_BORDER),1, 3));
 
-        System.out.println(LogicBuilder.calculateSumThreeConsecutiveElementsOfArray(ArrayInitializer.
+        System.out.println(NumbersAnalyzer.calculateSumThreeConsecutiveElementsOfArray(ArrayInitializer.
                 buildArray(LENGTH_ARRAY, MIN_BORDER, MAX_BORDER),3, 5));
 
-        System.out.println(LogicBuilder.calculateSumThreeConsecutiveElementsOfArray(ArrayInitializer.
+        System.out.println(NumbersAnalyzer.calculateSumThreeConsecutiveElementsOfArray(ArrayInitializer.
                 buildArray(LENGTH_ARRAY, MIN_BORDER, MAX_BORDER),4, 6));
 
         //task 9
-        System.out.println(LogicBuilder.
-                findAreaRectangles(FIRST_SIZE_RECTANGLES,
-                        SECOND_SIZE_RECTANGLES, THIRD_SIZE_RECTANGLES, FOURTH_SIZE_RECTANGLES));
+        System.out.println(GeometricalCalculator.findAreaRectangles(FIRST_SIZE_RECTANGLES,
+                SECOND_SIZE_RECTANGLES, THIRD_SIZE_RECTANGLES, FOURTH_SIZE_RECTANGLES));
 
         //task 10
-        System.out.println(Arrays.toString(LogicBuilder.calculateArrayFormationFromNumber(LARGE_NUMBER)));
+        System.out.println(Arrays.toString(NumbersAnalyzer.calculateArrayFormationFromNumber(LARGE_NUMBER)));
     }
 }
