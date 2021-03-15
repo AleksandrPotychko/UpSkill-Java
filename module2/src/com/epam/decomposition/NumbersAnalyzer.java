@@ -99,4 +99,149 @@ public class NumbersAnalyzer {
         }
         return numberLength;
     }
+
+    //task 11
+    public static int  calculateWhichNumberIsLonger (int firstNumber, int secondNumber) {
+        int lengthFirstNumber = findNumberLength(firstNumber);
+        int lengthSecondNumber = findNumberLength(secondNumber);
+        if (lengthFirstNumber > lengthSecondNumber) {
+            return firstNumber;
+        } else {
+            return secondNumber;
+        }
+    }
+
+    //task 13
+    public static void findPairsOfSimpleTwins (int startingPoint) {
+        for (int i = startingPoint; i <= startingPoint * 2; i++) {
+            if (checkForPrimeNumber(i) && checkForPrimeNumber(i + 2)) {
+                System.out.println(i + " " + (i + 2));
+            }
+        }
+    }
+
+    private static boolean checkForPrimeNumber (int number) {
+        for (int i = 2; i <= number / 2; i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    //task 14
+    public static int[] findAllArmstrongNumbersBorders (int finishBorder) {
+        int[] array = new int[30];
+        int count = 0;
+        for (int i = 1; i <= finishBorder; i ++) {
+            if (checkingForAmstrongNumber(i)) {
+                array[count] = i;
+                count++;
+            }
+        }
+        return array;
+    }
+
+    private static boolean checkingForAmstrongNumber(int number) {
+        int lengthNumber = findNumberLength(number);
+        int[] array = calculateArrayFormationFromNumber(number);
+        int sum = 0;
+        for (int i = 0;  i < array.length; i ++) {
+            sum += Math.pow(array[i], lengthNumber);
+        }
+        if (number != sum) {
+            return false;
+        }
+        return true;
+    }
+
+    //task 15
+    public static void findNumbersAscendingSuccession (int minBorder, int maxBorder, int arrayLength) {
+        int[] array = arrayGenerating(minBorder,maxBorder,arrayLength);
+        for (int i = 0; i < array.length; i++) {
+            if (checkNumberForAscending(array[i])) {
+                System.out.println(array[i]);
+            }
+        }
+    }
+
+    private static boolean checkNumberForAscending (int number) {
+       int[] array = calculateArrayFormationFromNumber(number);
+       for (int i = array.length - 1; i > 0; i--) {
+           if (array[i] <= array[i - 1]) {
+               return false;
+           }
+       }
+        return true;
+    }
+
+    private static int[] arrayGenerating (int minBorder, int maxBorder, int arrayLength) {
+        int[] array = new int[arrayLength];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = ((int) (Math.random() * maxBorder) + minBorder);
+        }
+        return array;
+    }
+
+    //task 16
+    public static int[] findSumOddNumberAndEvenDigits (int number) {
+        int[] array = new int[2];
+        while (checkNumberOddDigits(number)) {
+            int sumNumber = calculateSumOddNumber(number);
+            int evenDigits = calculateNumberEvenDigits(sumNumber);
+            array[0] = sumNumber;
+            array[1] = evenDigits;
+        }
+            return array;
+    }
+
+    private static int calculateSumOddNumber (int number) {
+        int sumNumber = 0;
+            int[] array = calculateArrayFormationFromNumber(number);
+            for (int i = 0; i < array.length; i++) {
+                sumNumber += array[i];
+        }
+        return sumNumber;
+    }
+
+    private static boolean checkNumberOddDigits (int number) {
+        int[] array = calculateArrayFormationFromNumber(number);
+        for (int i = 0; i <array.length ; i++) {
+            if (array[i] % 2 == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static int calculateNumberEvenDigits (int number) {
+        int countEvenDigits = 0;
+        int[] array = calculateArrayFormationFromNumber(number);
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] % 2 == 0) {
+                countEvenDigits++;
+            }
+        }
+        return countEvenDigits;
+    }
+
+    //task 17
+    public static int numberOfSubtractions (int number) {
+        int count = 0;
+        int result = number;
+        while (result != 0) {
+            result = result - calculateSumNumber(result);
+            count++;
+        }
+        return count;
+    }
+
+    private static int calculateSumNumber (int number) {
+        int sumNumber = 0;
+        int[] array = calculateArrayFormationFromNumber(number);
+        for (int i = 0; i < array.length; i++) {
+            sumNumber += array[i];
+        }
+        return sumNumber;
+    }
 }

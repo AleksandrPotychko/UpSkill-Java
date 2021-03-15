@@ -62,5 +62,27 @@ public class TaskLauncher {
 
         //task 10
         System.out.println(Arrays.toString(NumbersAnalyzer.calculateArrayFormationFromNumber(LARGE_NUMBER)));
+
+        //task 11
+        System.out.println(NumbersAnalyzer.calculateWhichNumberIsLonger(FIRST_NUMBER, LARGE_NUMBER));
+
+        //task 12
+
+
+        //task 13
+        NumbersAnalyzer.findPairsOfSimpleTwins(FIRST_NUMBER);
+
+        //task 14
+        System.out.println(Arrays.toString(NumbersAnalyzer.findAllArmstrongNumbersBorders(LARGE_NUMBER)));
+
+        //task 15
+        NumbersAnalyzer.findNumbersAscendingSuccession(1000,9999,LENGTH_ARRAY);
+
+        //task 16
+        System.out.println(Arrays.toString(NumbersAnalyzer.findSumOddNumberAndEvenDigits(13257)));
+
+        //task 17
+        System.out.println(NumbersAnalyzer.numberOfSubtractions(LARGE_NUMBER));
+
     }
 }
