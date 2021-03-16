@@ -3,7 +3,8 @@ package com.epam.decomposition;
 public class GeometricalCalculator {
     //task 3
     public static double findHexagonArea(double sizeHexagon) {
-        return calculateEquilateralTriangleArea(sizeHexagon) * 6;
+        final int NUMBER_OF_ANGLES = 6;
+        return calculateEquilateralTriangleArea(sizeHexagon) * NUMBER_OF_ANGLES;
     }
 
     private static double calculateEquilateralTriangleArea(double sizeTriangle) {
@@ -11,11 +12,11 @@ public class GeometricalCalculator {
     }
 
     //task 4
-    public static double findGreatestDistance(double[] array) {
+    public static double findGreatestDistance(double[][] array) {
         double maxDistance = 0;
-        for (double i = 0; i < array.length; i++) {
-            for (double j = 1; j < array.length - j; j++) {
-                double distance = (calculatePointSpacing(i, i, i + j, i + j));
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 1; j < array.length - j; j++) {
+                double distance = calculatePointSpacing(array, i, i, i + j, i + j);
                 if (distance > maxDistance) {
                     maxDistance = distance;
                 }
@@ -24,16 +25,16 @@ public class GeometricalCalculator {
         return maxDistance;
     }
 
-    private static double calculatePointSpacing(double firstPointX, double firstPointY, double secondPointX,
-                                                double secondPointY) {
-        return Math.sqrt(Math.pow((secondPointX - firstPointX), 2) + Math.pow((secondPointY - firstPointY), 2));
+    private static double calculatePointSpacing(double[][] array, int firstX, int firstY, int secondX, int secondY) {
+        return Math.sqrt(Math.
+                pow((array[0][secondX] - array[0][firstX]), 2) + Math.pow((array[1][secondY] - array[1][firstY]), 2));
     }
 
     //task 9
     public static double findAreaRectangles(double firstSize, double secondSize, double thirdSize, double fourthSize) {
-        double areaFirstTriangle =findAreaRightTriangle(firstSize, secondSize);
-        double diagonalRightTriangle =findDiagonalRightTriangle(firstSize, secondSize);
-        double areaSecondTriangle =useHeronFormula(thirdSize, fourthSize, diagonalRightTriangle);
+        double areaFirstTriangle = findAreaRightTriangle(firstSize, secondSize);
+        double diagonalRightTriangle = findDiagonalRightTriangle(firstSize, secondSize);
+        double areaSecondTriangle = useHeronFormula(thirdSize, fourthSize, diagonalRightTriangle);
         return  areaFirstTriangle + areaSecondTriangle;
     }
     private static double useHeronFormula(double firstCathetus, double secondCathetus, double hypotenuse) {

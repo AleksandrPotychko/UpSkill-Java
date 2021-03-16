@@ -1,6 +1,8 @@
 package com.epam.decomposition;
 
 
+import java.util.ArrayList;
+
 public class NumbersAnalyzer {
     //task 1
     public static int findLeastCommonMultiple(int firstNumber, int secondNumber) {
@@ -30,20 +32,16 @@ public class NumbersAnalyzer {
     }
 
     //task 5
-    public static int findSecondLargestNumber(int[] array,int indexNumber) {
-        boolean isSorted = false;
-        while (!isSorted) {
-            isSorted = true;
-            for (int i = 1; i < array.length; i++) {
-                if (array[i] < array[i - 1]) {
-                    int temp = array[i - 1];
-                    array[i - 1] = array[i];
-                    array[i] = temp;
-                    isSorted = false;
+    public static int findSecondLargestNumber(int[] array) {
+        int max = array[0];
+        int secondMax = 0;
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] > max) {
+                    secondMax = max;
+                    max = array[i];
                 }
             }
-        }
-        return array[array.length  - indexNumber];
+        return secondMax;
     }
 
     //task 6
@@ -101,26 +99,46 @@ public class NumbersAnalyzer {
     }
 
     //task 11
-    public static int  calculateWhichNumberIsLonger (int firstNumber, int secondNumber) {
+    public static int  calculateWhichNumberIsLonger(int firstNumber, int secondNumber) {
         int lengthFirstNumber = findNumberLength(firstNumber);
         int lengthSecondNumber = findNumberLength(secondNumber);
         if (lengthFirstNumber > lengthSecondNumber) {
             return firstNumber;
-        } else {
+        } else  if (lengthFirstNumber < lengthSecondNumber) {
             return secondNumber;
+        } else {
+            return lengthFirstNumber; // можно ли тут вернуть оба числа? или тип Sting?
         }
+    }
+
+    // task 12 mentor
+    public static ArrayList<Integer> findNumbersEqualsToSumOfDigitsOfNumberKAndLessThanNumberN(int k, int n) {
+        ArrayList<Integer> numbers = new ArrayList<>();
+        int minNumber = (int) (k % 9 * Math.pow(10.0, k / 9)) + (int) (Math.pow(10.0, k / 9)) - 1;
+        if (k > 0 && n >= minNumber) {
+            for (int i = n; i >= minNumber; i--) {
+                int[] digits = splitNumberIntoDigits(i);
+                int sum = 0;
+                for (int digit : digits) {
+                    sum += digit;
+                }
+                if (sum == k) {
+                    numbers.add(i);
+                }
+            }
+        }
+        return numbers;
     }
 
     //task 13
     public static void findPairsOfSimpleTwins (int startingPoint) {
         for (int i = startingPoint; i <= startingPoint * 2; i++) {
-            if (checkForPrimeNumber(i) && checkForPrimeNumber(i + 2)) {
+            if (isPrimeNumber(i) && isPrimeNumber(i + 2)) {
                 System.out.println(i + " " + (i + 2));
             }
         }
     }
-
-    private static boolean checkForPrimeNumber (int number) {
+    private static boolean isPrimeNumber (int number) {
         for (int i = 2; i <= number / 2; i++) {
             if (number % i == 0) {
                 return false;
@@ -129,12 +147,50 @@ public class NumbersAnalyzer {
         return true;
     }
 
+    //task 13 mentor
+    public static StringBuilder findTwinPrimeNumbers(int firstNumber, int lastNumber) {
+        StringBuilder twinPrimes = new StringBuilder();
+        final int specifiedFactor = 2;
+        if (firstNumber > 2 && lastNumber == specifiedFactor * firstNumber) {
+            ArrayList<Integer> primeNumbers = findPrimeNumbers(firstNumber, lastNumber);
+            if (primeNumbers.size() != 0) {
+                for (int i = 1; i < primeNumbers.size(); i++) {
+                    if (primeNumbers.get(i - 1) + 2 == primeNumbers.get(i)) {
+                        twinPrimes.append("[").append(primeNumbers.get(i - 1)).append(", ").append(primeNumbers.get(i)).
+                                append("] ");
+                    }
+                }
+            }
+        }
+        return twinPrimes;
+    }
+    private static ArrayList<Integer> findPrimeNumbers(int firstNumber, int lastNumber) {
+        final int minDivisorForPrimeNumbers = 2;
+        final int firstPrimeNumber = 2;
+        ArrayList<Integer> primeNumbers = new ArrayList<>();
+        if (firstNumber >= firstPrimeNumber && lastNumber > firstNumber) {
+            for (int i = firstPrimeNumber; i <= lastNumber; i++) {
+                boolean isCompositeNumber = false;
+                for (int divisor = minDivisorForPrimeNumbers; divisor <= Math.round(Math.sqrt(i)); divisor++) {
+                    if (i % divisor == 0) {
+                        isCompositeNumber = true;
+                        break;
+                    }
+                }
+                if (!isCompositeNumber) {
+                    primeNumbers.add(i);
+                }
+            }
+        }
+        return primeNumbers;
+    }
+
     //task 14
-    public static int[] findAllArmstrongNumbersBorders (int finishBorder) {
-        int[] array = new int[30];
+    public static int[] findAllArmstrongNumbersBorders(int finishBorder, int arrayLangth) {
+        int[] array = new int[arrayLangth];
         int count = 0;
         for (int i = 1; i <= finishBorder; i ++) {
-            if (checkingForAmstrongNumber(i)) {
+            if (isAmstrongNumber(i)) {
                 array[count] = i;
                 count++;
             }
@@ -142,30 +198,26 @@ public class NumbersAnalyzer {
         return array;
     }
 
-    private static boolean checkingForAmstrongNumber(int number) {
+    private static boolean isAmstrongNumber(int number) {
         int lengthNumber = findNumberLength(number);
         int[] array = calculateArrayFormationFromNumber(number);
         int sum = 0;
         for (int i = 0;  i < array.length; i ++) {
             sum += Math.pow(array[i], lengthNumber);
         }
-        if (number != sum) {
-            return false;
-        }
-        return true;
+       return number == sum;
     }
 
     //task 15
-    public static void findNumbersAscendingSuccession (int minBorder, int maxBorder, int arrayLength) {
-        int[] array = arrayGenerating(minBorder,maxBorder,arrayLength);
+    public static void findNumbersAscendingSuccession(int[] array) {
         for (int i = 0; i < array.length; i++) {
-            if (checkNumberForAscending(array[i])) {
+            if (isNumberForAscending(array[i])) {
                 System.out.println(array[i]);
             }
         }
     }
 
-    private static boolean checkNumberForAscending (int number) {
+    private static boolean isNumberForAscending(int number) {
        int[] array = calculateArrayFormationFromNumber(number);
        for (int i = array.length - 1; i > 0; i--) {
            if (array[i] <= array[i - 1]) {
@@ -175,27 +227,21 @@ public class NumbersAnalyzer {
         return true;
     }
 
-    private static int[] arrayGenerating (int minBorder, int maxBorder, int arrayLength) {
-        int[] array = new int[arrayLength];
-        for (int i = 0; i < array.length; i++) {
-            array[i] = ((int) (Math.random() * maxBorder) + minBorder);
-        }
-        return array;
-    }
-
     //task 16
-    public static int[] findSumOddNumberAndEvenDigits (int number) {
-        int[] array = new int[2];
-        while (checkNumberOddDigits(number)) {
-            int sumNumber = calculateSumOddNumber(number);
-            int evenDigits = calculateNumberEvenDigits(sumNumber);
-            array[0] = sumNumber;
-            array[1] = evenDigits;
+    public static int[] findSumOddNumberAndEvenDigits(int[] array) {
+        int[] resultArray = new int[array.length * 2];
+        for (int i = 0; i < array.length; i++) {
+            while (isNumberOddDigits(array[i])) {
+                int sumNumber = calculateSumOddNumber(array[i]);
+                int evenDigits = calculateNumberEvenDigits(sumNumber);
+                resultArray[i] = sumNumber;
+                resultArray[i + 1] = evenDigits;
+            }
         }
-            return array;
+            return resultArray;
     }
 
-    private static int calculateSumOddNumber (int number) {
+    private static int calculateSumOddNumber(int number) {
         int sumNumber = 0;
             int[] array = calculateArrayFormationFromNumber(number);
             for (int i = 0; i < array.length; i++) {
@@ -204,7 +250,7 @@ public class NumbersAnalyzer {
         return sumNumber;
     }
 
-    private static boolean checkNumberOddDigits (int number) {
+    private static boolean isNumberOddDigits(int number) {
         int[] array = calculateArrayFormationFromNumber(number);
         for (int i = 0; i <array.length ; i++) {
             if (array[i] % 2 == 0) {
@@ -214,7 +260,7 @@ public class NumbersAnalyzer {
         return true;
     }
 
-    private static int calculateNumberEvenDigits (int number) {
+    private static int calculateNumberEvenDigits(int number) {
         int countEvenDigits = 0;
         int[] array = calculateArrayFormationFromNumber(number);
         for (int i = 0; i < array.length; i++) {
@@ -226,17 +272,16 @@ public class NumbersAnalyzer {
     }
 
     //task 17
-    public static int numberOfSubtractions (int number) {
+    public static int numberOfSubtractions(int number) {
         int count = 0;
-        int result = number;
-        while (result != 0) {
-            result = result - calculateSumNumber(result);
+        while (number != 0) {
+            number -= calculateSumNumber(number);
             count++;
         }
         return count;
     }
 
-    private static int calculateSumNumber (int number) {
+    private static int calculateSumNumber(int number) {
         int sumNumber = 0;
         int[] array = calculateArrayFormationFromNumber(number);
         for (int i = 0; i < array.length; i++) {

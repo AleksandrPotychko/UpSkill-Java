@@ -5,16 +5,17 @@ import com.epam.sorting.ArrayInitializer;
 import java.util.Arrays;
 
 public class TaskLauncher {
-    private static final int LENGTH_ARRAY = 10;
+    private static final int LENGTH_ARRAY = 20;
     private static final int MIN_BORDER = 1;
     private static final int MAX_BORDER = 9;
     private static final int FIRST_NUMBER = 10;
+    private static final int LAST_NUMBER = FIRST_NUMBER * 2;
     private static final int SECOND_NUMBER = 18;
     private static final int THIRD_NUMBER = 25;
     private static final int FOURTH_NUMBER = 30;
     private static final double SIZE_HEXAGON = 10.0;
-    private static final double[] COORDINATES_OF_POINTS = {5, 7, 2, 3, 15, 7, 12, 20};
-    private static final int INDEX_NUMBER = 2;
+    private static final double[][] COORDINATES_OF_POINTS = {{7, 3, 1, 3, 8, 10, 11}, {10, 15, 17, 4, 3, 15, 18}};
+    private static final int[] ARRAY = {12, 44, 12, 54, 68, 37,};
     private static final double FIRST_SIZE_RECTANGLES = 15;
     private static final double SECOND_SIZE_RECTANGLES = 15;
     private static final double THIRD_SIZE_RECTANGLES = 17;
@@ -37,8 +38,8 @@ public class TaskLauncher {
         System.out.println(GeometricalCalculator.findGreatestDistance(COORDINATES_OF_POINTS));
 
         //task 5
-        System.out.println(NumbersAnalyzer.findSecondLargestNumber(ArrayInitializer.
-                buildArray(LENGTH_ARRAY, MIN_BORDER, MAX_BORDER), INDEX_NUMBER));
+        System.out.println(NumbersAnalyzer.findSecondLargestNumber(ArrayInitializer.buildArray(LENGTH_ARRAY,
+                MIN_BORDER, LARGE_NUMBER)));
 
         //task 6
         System.out.println(NumbersAnalyzer.checkThreeNumbersMutuallyPrime(FIRST_NUMBER,SECOND_NUMBER,THIRD_NUMBER));
@@ -70,16 +71,17 @@ public class TaskLauncher {
 
 
         //task 13
-        NumbersAnalyzer.findPairsOfSimpleTwins(FIRST_NUMBER);
+        NumbersAnalyzer.findTwinPrimeNumbers(FIRST_NUMBER, LAST_NUMBER);
 
         //task 14
-        System.out.println(Arrays.toString(NumbersAnalyzer.findAllArmstrongNumbersBorders(LARGE_NUMBER)));
+        System.out.println(Arrays.toString(NumbersAnalyzer.findAllArmstrongNumbersBorders(LARGE_NUMBER, LENGTH_ARRAY)));
 
         //task 15
-        NumbersAnalyzer.findNumbersAscendingSuccession(1000,9999,LENGTH_ARRAY);
+        NumbersAnalyzer.findNumbersAscendingSuccession(ArrayInitializer.
+                buildArray(LENGTH_ARRAY, MIN_BORDER, LARGE_NUMBER));
 
         //task 16
-        System.out.println(Arrays.toString(NumbersAnalyzer.findSumOddNumberAndEvenDigits(13257)));
+        System.out.println(Arrays.toString(NumbersAnalyzer.findSumOddNumberAndEvenDigits(ARRAY)));
 
         //task 17
         System.out.println(NumbersAnalyzer.numberOfSubtractions(LARGE_NUMBER));
