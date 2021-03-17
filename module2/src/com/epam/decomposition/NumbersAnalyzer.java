@@ -35,13 +35,15 @@ public class NumbersAnalyzer {
     public static int findSecondLargestNumber(int[] array) {
         int max = array[0];
         int secondMax = 0;
-            for (int i = 0; i < array.length; i++) {
+            for (int i = 1; i < array.length; i++) {
                 if (array[i] > max) {
                     secondMax = max;
                     max = array[i];
+                } else if (array[i] > secondMax) {
+                    secondMax = array[i];
                 }
             }
-        return secondMax;
+            return secondMax;
     }
 
     //task 6
@@ -103,11 +105,11 @@ public class NumbersAnalyzer {
         int lengthFirstNumber = findNumberLength(firstNumber);
         int lengthSecondNumber = findNumberLength(secondNumber);
         if (lengthFirstNumber > lengthSecondNumber) {
-            return firstNumber;
+            return 1;
         } else  if (lengthFirstNumber < lengthSecondNumber) {
-            return secondNumber;
+            return 2;
         } else {
-            return lengthFirstNumber; // можно ли тут вернуть оба числа? или тип Sting?
+            return -1;
         }
     }
 
@@ -224,11 +226,12 @@ public class NumbersAnalyzer {
                return false;
            }
        }
-        return true;
+       return true;
     }
 
     //task 16
-    public static int[] findSumOddNumberAndEvenDigits(int[] array) {
+    public static int[] findSumOddNumberAndEvenDigits(int orderN) {
+        int[] array = arrayCreator(orderN);
         int[] resultArray = new int[array.length * 2];
         for (int i = 0; i < array.length; i++) {
             while (isNumberOddDigits(array[i])) {
@@ -239,6 +242,16 @@ public class NumbersAnalyzer {
             }
         }
             return resultArray;
+    }
+
+    private static int[] arrayCreator(int orderN) {
+        int maxBorder = 899999999 / (int) Math.pow(10, (9 - orderN));
+        int minBorder = 100000000 / (int) Math.pow(10, (9 - orderN));;
+        int[] array = null;
+        for (int i = 0; i < array.length; i++) {
+            array[i] = ((int) (Math.random() * maxBorder) + minBorder);
+        }
+        return array;
     }
 
     private static int calculateSumOddNumber(int number) {
@@ -272,7 +285,7 @@ public class NumbersAnalyzer {
     }
 
     //task 17
-    public static int numberOfSubtractions(int number) {
+    public static int calculateNumberOfSubtractions(int number) {
         int count = 0;
         while (number != 0) {
             number -= calculateSumNumber(number);

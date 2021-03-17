@@ -35,7 +35,7 @@ public class TaskLauncher {
         System.out.println(GeometricalCalculator.findHexagonArea(SIZE_HEXAGON));
 
         //task 4
-        System.out.println(GeometricalCalculator.findGreatestDistance(COORDINATES_OF_POINTS));
+        System.out.println(Arrays.deepToString(GeometricalCalculator.findGreatestDistance(COORDINATES_OF_POINTS)));
 
         //task 5
         System.out.println(NumbersAnalyzer.findSecondLargestNumber(ArrayInitializer.buildArray(LENGTH_ARRAY,
@@ -84,7 +84,7 @@ public class TaskLauncher {
         System.out.println(Arrays.toString(NumbersAnalyzer.findSumOddNumberAndEvenDigits(ARRAY)));
 
         //task 17
-        System.out.println(NumbersAnalyzer.numberOfSubtractions(LARGE_NUMBER));
+        System.out.println(NumbersAnalyzer.calculateNumberOfSubtractions(LARGE_NUMBER));
 
     }
 }

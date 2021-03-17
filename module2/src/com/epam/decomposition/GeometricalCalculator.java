@@ -12,17 +12,22 @@ public class GeometricalCalculator {
     }
 
     //task 4
-    public static double findGreatestDistance(double[][] array) {
+    public static double[][] findGreatestDistance(double[][] array) {
         double maxDistance = 0;
+        double[][] pointsCoordinates = new double[2][2];
         for (int i = 0; i < array.length; i++) {
             for (int j = 1; j < array.length - j; j++) {
                 double distance = calculatePointSpacing(array, i, i, i + j, i + j);
                 if (distance > maxDistance) {
+                    pointsCoordinates[0][0] = i;
+                    pointsCoordinates[1][0] = i;
+                    pointsCoordinates[0][1] = i + j;
+                    pointsCoordinates[1][1] = i + j;
                     maxDistance = distance;
                 }
             }
         }
-        return maxDistance;
+        return pointsCoordinates;
     }
 
     private static double calculatePointSpacing(double[][] array, int firstX, int firstY, int secondX, int secondY) {
