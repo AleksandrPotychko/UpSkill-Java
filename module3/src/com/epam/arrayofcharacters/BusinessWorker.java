@@ -25,16 +25,30 @@ public class BusinessWorker {
 
     //task 2
     public static String replaceTheWords(String text) {
-        String oldWord = "world";
-        String newWord = "letter";
-        return text.replace(oldWord, newWord);
+        StringBuilder strBuilder = new StringBuilder();
+        String result;
+        for (int i = 0; i < text.length(); i++) {
+            if (i + 3 < text.length() && text.charAt(i) == 'w' && text.charAt(i + 1) == 'o' && text.charAt(i + 2) == 'r'
+                    && text.charAt(i + 3) == 'd') {
+                strBuilder.append("letter");
+                i += 3;
+            } else {
+                strBuilder.append(text.charAt(i));
+            }
+        }
+        result = strBuilder.toString();
+        return result;
     }
+
     //task 3
     public static int countDigits(String text) {
         int count = 0;
+        final char [] characters = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
         for (int i = 0; i < text.length(); i++) {
-            if (Character.isDigit(text.charAt(i))) {
-                count++;
+            for (char element : characters) {
+                if (text.charAt(i) == element) {
+                    count++;
+                }
             }
         }
         return count;

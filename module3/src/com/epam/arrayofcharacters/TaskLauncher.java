@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 public class TaskLauncher {
 
-    public static String[] CAMEL_CASE = {"oneCase", "twoCase", "toGoHome", "starWars", "dartMoll", "dartRevan",
+    private static final String[] CAMEL_CASE = {"oneCase", "twoCase", "toGoHome", "starWars", "dartMoll", "dartRevan",
             "masterObiVanKenobi"};
-    public static String TEXT_FOR_THE_TASK = " world,   12  and   875 milk a   345  sugar 11  or salt,  5  world ";
+    private static final String TEXT_FOR_THE_TASK = " word,   12  and   875 milk a   345  sugar 11  or salt,  5  word ";
 
     public static void main(String[] args) {
         //task 1
