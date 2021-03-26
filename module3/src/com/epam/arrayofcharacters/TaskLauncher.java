@@ -22,7 +22,7 @@ public class TaskLauncher {
         System.out.println(BusinessWorker.countNumbers(TEXT_FOR_THE_TASK));
 
         //task 5
-        BusinessWorker.removeExtraSpaces(TEXT_FOR_THE_TASK);
+        System.out.println(BusinessWorker.removeExtraSpaces(TEXT_FOR_THE_TASK));
 
     }
 }
