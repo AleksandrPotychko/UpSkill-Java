@@ -36,17 +36,15 @@ public class BusinessWorker {
     }
 
     //task 3
-    public static int countDigits(String text) {
-        int count = 0;
-        final char [] characters = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
-        for (int i = 0; i < text.length(); i++) {
-            for (char element : characters) {
-                if (text.charAt(i) == element) {
-                    count++;
-                }
+    public static int countDigits(String text, int asciiNumberOfFirstDigit, int asciiNumberOfLastDigit) {
+        int counterOfDigits = 0;
+        final char[] characters = text.toCharArray();
+        for (char ch : characters) {
+            if (ch >= asciiNumberOfFirstDigit && ch <= asciiNumberOfLastDigit) {
+                counterOfDigits++;
             }
         }
-        return count;
+        return counterOfDigits;
     }
 
     //task 4
@@ -57,19 +55,22 @@ public class BusinessWorker {
                     if (i == text.length() - 1 || !isDigit(text.charAt(i + 1))) {
                         count++;
                     }
+                    if (isDigit(text.charAt(i)) && text.
+                            charAt(i + 1) == '.' || text.charAt(i + 1) == ',' && isDigit(text.charAt(i + 2))) {
+                        count--;
+                    }
                 }
             }
             return count;
         }
 
-        private static boolean isDigit(char text) {
-            boolean isDigit = false;
-            char [] digits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
-            for (char element : digits) {
-                if (text == element) {
+        private static boolean isDigit(char ch) {
+        boolean isDigit = false;
+            int ASCII_NUMBER_OF_FIRST_DIGIT = 48;
+            int ASCII_NUMBER_OF_LAST_DIGIT = 57;
+                if (ch >= ASCII_NUMBER_OF_FIRST_DIGIT && ch <= ASCII_NUMBER_OF_LAST_DIGIT){
                     isDigit = true;
                 }
-            }
             return isDigit;
         }
 
