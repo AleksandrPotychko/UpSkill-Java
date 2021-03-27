@@ -51,28 +51,28 @@ public class BusinessWorker {
     public static int countNumbers(String text) {
         int count = 0;
         for (int i = 0; i < text.length(); i++) {
-                if (isDigit(text.charAt(i))) {
-                    if (i == text.length() - 1 || !isDigit(text.charAt(i + 1))) {
-                        count++;
-                    }
-                    if (isDigit(text.charAt(i)) && text.
-                            charAt(i + 1) == '.' || text.charAt(i + 1) == ',' && isDigit(text.charAt(i + 2))) {
-                        count--;
-                    }
+            if (isDigit(text.charAt(i))) {
+                if (i == text.length() - 1 || !isDigit(text.charAt(i + 1))) {
+                    count++;
+                }
+                if (isDigit(text.charAt(i)) && text.
+                        charAt(i + 1) == '.' || text.charAt(i + 1) == ',' && isDigit(text.charAt(i + 2))) {
+                    count--;
                 }
             }
-            return count;
         }
+        return count;
+    }
 
-        private static boolean isDigit(char ch) {
+    private static boolean isDigit(char ch) {
         boolean isDigit = false;
-            int ASCII_NUMBER_OF_FIRST_DIGIT = 48;
-            int ASCII_NUMBER_OF_LAST_DIGIT = 57;
-                if (ch >= ASCII_NUMBER_OF_FIRST_DIGIT && ch <= ASCII_NUMBER_OF_LAST_DIGIT){
-                    isDigit = true;
-                }
-            return isDigit;
+        int ASCII_NUMBER_OF_FIRST_DIGIT = 48;
+        int ASCII_NUMBER_OF_LAST_DIGIT = 57;
+        if (ch >= ASCII_NUMBER_OF_FIRST_DIGIT && ch <= ASCII_NUMBER_OF_LAST_DIGIT){
+            isDigit = true;
         }
+        return isDigit;
+    }
 
     //task5
     public static String removeExtraSpaces(String text) {
