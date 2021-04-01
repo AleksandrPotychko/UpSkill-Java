@@ -31,33 +31,20 @@ public class StringWorker {
     }
 
     //task 4
-    public static String convertInformaticaToTort(String word) {
-        final char LETTER_T = 't';
-        final char LETTER_O = 'o';
-        final char LETTER_R = 'r';
-        StringBuilder result = new StringBuilder();
-        final char[] characters = word.toCharArray();
-        for (char character : characters) {
-            if (character == LETTER_T) {
-                result.append(character);
+    public static String concatenateSpecifiedWordFromAnotherWord(String donorWord, String specifiedWord) {
+        final int LENGTH_OF_WORD = specifiedWord.length();
+        StringBuilder resultString = new StringBuilder();
+        boolean areAllCharacters = true;
+        for (int i = 0; i < LENGTH_OF_WORD; i++) {
+            int indexOfSearchingLetter = donorWord.indexOf(specifiedWord.charAt(i));
+            if (indexOfSearchingLetter != -1) {
+                resultString.append(donorWord.charAt(indexOfSearchingLetter));
+            } else {
+                areAllCharacters = false;
+                break;
             }
         }
-        for (char character : characters) {
-            if (character == LETTER_O) {
-                result.append(character);
-            }
-        }
-        for (char character : characters) {
-            if (character == LETTER_R) {
-                result.append(character);
-            }
-        }
-        for (char character : characters) {
-            if (character == LETTER_T) {
-                result.append(character);
-            }
-        }
-        return result.toString();
+        return (areAllCharacters) ? resultString.toString() : "";
     }
 
     //task 5
@@ -65,14 +52,13 @@ public class StringWorker {
         int occurrencesOfCharacter = 0;
         for (int i = text.indexOf(letterA); i != -1; i = text.indexOf(letterA, i + 1)) {
             occurrencesOfCharacter++;
-            }
+        }
         return occurrencesOfCharacter;
     }
 
     //task 6
-    public static String repeatEveryCharacterTwice(String text) {
+    public static String repeatEveryCharacterTwice(String text, int numberOfRepetitions) {
         StringBuilder stringBuilder = new StringBuilder();
-        int numberOfRepetitions = 2;
         for (int i = 0; i < text.length(); i++) {
             for (int j = 0; j < numberOfRepetitions; j++) {
                 stringBuilder.append(text.charAt(i));
@@ -105,18 +91,15 @@ public class StringWorker {
     }
 
     //task 9
-    public static int[] calculateLowerAndUpperCase(String text) {
+    public static int[] calculateLowerAndUpperCase(String text, char lowerCaseA, char lowerCaseZ,
+                                                   char upperCaseA, char upperCaseZ) {
         int[] resultArray = new int[2];
-        final char LOWER_CASE_A = 'a';
-        final char LOWER_CASE_Z = 'z';
-        final char UPPER_CASE_A = 'A';
-        final char UPPER_CASE_Z = 'Z';
         final char[] characters = text.toCharArray();
         for (char character : characters) {
-            if (character >= LOWER_CASE_A && character <= LOWER_CASE_Z) {
+            if (character >= lowerCaseA && character <= lowerCaseZ) {
                 resultArray[0]++;
             }
-            if (character >= UPPER_CASE_A && character <= UPPER_CASE_Z) {
+            if (character >= upperCaseA && character <= upperCaseZ) {
                 resultArray[1]++;
             }
         }
@@ -125,19 +108,19 @@ public class StringWorker {
 
     //task 10
     public static int calculateTheSentences(String text) {
-        int occurrencesOfCharacter = 0;
+        int counterSentences = 0;
         final char DOT = '.';
         final char EXCLAMATION_MARK = '!';
         final char QUESTION_MARK = '?';
         for (int i = text.indexOf(DOT); i != -1; i = text.indexOf(DOT, i + 1)) {
-            occurrencesOfCharacter++;
+            counterSentences++;
         }
         for (int i = text.indexOf(EXCLAMATION_MARK); i != -1; i = text.indexOf(EXCLAMATION_MARK, i + 1)) {
-            occurrencesOfCharacter++;
+            counterSentences++;
         }
         for (int i = text.indexOf(QUESTION_MARK); i != -1; i = text.indexOf(QUESTION_MARK, i + 1)) {
-            occurrencesOfCharacter++;
+            counterSentences++;
         }
-        return occurrencesOfCharacter;
+        return counterSentences;
     }
 }
