@@ -1,7 +1,5 @@
 package com.epam.regularexpressions;
 
-import com.epam.stringorstringBuilder.XmlParser;
-
 
 public class TaskLauncher {
     private final static String TEXT =
