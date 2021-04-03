@@ -13,6 +13,6 @@ public class TaskLauncher {
     public static void main(String[] args) {
         System.out.println(ChooseOneOfTheActions.sortsParagraphs(TEXT));
 
-        System.out.println(ChooseOneOfTheActions.sortsWords(TEXT));
+        System.out.println(ChooseOneOfTheActions.sortsWords(TEXT, false));
     }
 }

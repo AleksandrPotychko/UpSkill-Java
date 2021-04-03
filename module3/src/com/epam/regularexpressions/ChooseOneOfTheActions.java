@@ -26,19 +26,31 @@ public class ChooseOneOfTheActions {
         return resultString;
     }
 
-    public static StringBuilder sortsWords(String text) {
+    public static StringBuilder sortsWords(String text, boolean isAscending) {
         StringBuilder resultString = new StringBuilder();
         String[] paragraphs = text.split("\n");
         for (String paragraph : paragraphs) {
             String[] sentences = splitSentences(paragraph);
             for (String sentence : sentences) {
                 String[] words = splitWords(sentence);
-                for (int i = words.length - 1; i >= 0; i--) {
-                    for (int j = 0; j < i; j++) {
-                        if (words[j].length() > words[j + 1].length()) {
-                            String swap = words[j];
-                            words[j] = words[j + 1];
-                            words[j + 1] = swap;
+                if (isAscending) {
+                    for (int i = words.length - 1; i >= 0; i--) {
+                        for (int j = 0; j < i; j++) {
+                            if (words[j].length() > words[j + 1].length()) {
+                                String swap = words[j];
+                                words[j] = words[j + 1];
+                                words[j + 1] = swap;
+                            }
+                        }
+                    }
+                } else {
+                    for (int i = words.length - 1; i >= 0; i--) {
+                        for (int j = 0; j < i; j++) {
+                            if (words[j].length() < words[j + 1].length()) {
+                                String swap = words[j];
+                                words[j] = words[j + 1];
+                                words[j + 1] = swap;
+                            }
                         }
                     }
                 }
