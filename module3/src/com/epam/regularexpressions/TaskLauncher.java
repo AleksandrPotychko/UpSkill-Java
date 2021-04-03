@@ -1,6 +1,7 @@
 package com.epam.regularexpressions;
 
-import java.util.Arrays;
+import com.epam.stringorstringBuilder.XmlParser;
+
 
 public class TaskLauncher {
     private final static String TEXT =
@@ -10,9 +11,26 @@ public class TaskLauncher {
             "Night Harry turns eleven. Hagrid  tells him, that he is a wizard. And will study at Hogwarts.\n" +
             "Hagrid says that the stone is guarded by teachers, including Steble. Flitwick! McGonagall? Quirrell.\n";
 
+    private final static String XML =
+    "   <notes>\n" +
+    "    <note id = \"1\">\n" +
+    "     <to>Вася</to>\n" +
+    "     <from>Света</from>\n" +
+    "     <heading>Напоминание</heading>\n" +
+    "     <body>Позвони мне завтра!</body>\n" +
+    "    </note>\n" +
+    "    <note id = \"2\">\n" +
+    "     <to>Петя</to>\n" +
+    "     <from>Маша</from>\n" +
+    "     <heading>Важное напоминание</heading>\n" +
+    "     <body/>\n" +
+    "    </note>\n" +
+    "   </notes>\n";
+
     public static void main(String[] args) {
         System.out.println(ChooseOneOfTheActions.sortsParagraphs(TEXT));
-
         System.out.println(ChooseOneOfTheActions.sortsWords(TEXT, false));
+
+        System.out.println(XmlParser.xmlAnalyzer(XML));
     }
 }
