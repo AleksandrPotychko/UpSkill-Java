@@ -31,6 +31,6 @@ public class TaskLauncher {
         System.out.println(TextParser.sortWords(TEXT));
         System.out.println(TextParser.sortLexemes(TEXT, LEXEME));
 
-        System.out.println(XmlParser.dividerByOpeningTagClosingTagTagWithoutBodyTagContent(XML_TEXT));
+        System.out.println(XmlParser.parseXml(XML_TEXT));
     }
 }

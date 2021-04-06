@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class XmlParser {
-    public static String regexParser(String xmlText) {
+    public static String parseXml(String xmlText) {
         StringBuilder strBuilder = new StringBuilder();
         Pattern openingTag = Pattern.compile("<\\w.+?>");
         Pattern closingTag = Pattern.compile("</\\w+>");
