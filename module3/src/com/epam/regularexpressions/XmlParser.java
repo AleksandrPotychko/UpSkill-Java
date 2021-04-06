@@ -4,11 +4,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class XmlParser {
-    public static String xmlAnalyzer(String xmlText) {
+    public static String regexParser(String xmlText) {
         StringBuilder strBuilder = new StringBuilder();
         Pattern openingTag = Pattern.compile("<\\w.+?>");
         Pattern closingTag = Pattern.compile("</\\w+>");
-        Pattern tagContent = Pattern.compile(">.+?<");
+        Pattern tagContent = Pattern.compile(">(.+)<");
         Pattern tagWithoutBody = Pattern.compile("<\\w.+?/>");
 
         String[] lines = xmlText.split("\n\\s*");
@@ -26,7 +26,7 @@ public class XmlParser {
                 strBuilder.append("\n");
             }
             if (matcherTagContent.find()) {
-                strBuilder.append(matcherTagContent.group().substring(1));
+                strBuilder.append(matcherTagContent.group(1));
                 strBuilder.append("\n");
             }
             if (matcherClosingTag.find()) {
