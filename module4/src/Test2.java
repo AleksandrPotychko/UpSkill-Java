@@ -4,14 +4,15 @@ public class Test2 {
     private int secondVariable;
 
     public Test2() {
-        firstVariable = 6;
-        secondVariable = 8;
+        this.firstVariable = 111;
+        this.secondVariable = 222;
     }
 
     public Test2(int firstVariable, int secondVariable) {
         this.firstVariable = firstVariable;
         this.secondVariable = secondVariable;
     }
+
     public int getFirstVariable() {
         return firstVariable;
     }
@@ -28,4 +29,3 @@ public class Test2 {
         this.secondVariable = secondVariable;
     }
 }
-
