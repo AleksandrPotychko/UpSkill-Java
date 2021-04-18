@@ -1,10 +1,15 @@
+package com.epam.util.init;
+
+import com.epam.entity.Student;
+import com.epam.entity.Train;
+
 public class ArrayInitializer {
     final static int STUDENT_POPULATION = 10;
 
-    public static Student[] createStudent() {
+    public static Student[] createStudents() {
         Student[] students = new Student[STUDENT_POPULATION];
-        students[0] = new Student("Potychko", "A.A.", 1, new int[] {10, 9, 9, 10, 9});
-        students[1] = new Student("Sietova", "D.E.", 1, new int[] {10, 9, 8, 10, 9});
+        students[0] = new Student("Petrovich", "A.A.", 1, new int[] {10, 9, 9, 10, 9});
+        students[1] = new Student("Lokotok", "D.E.", 1, new int[] {10, 9, 10, 10, 9});
         students[2] = new Student("Ivanov", "A.S..", 1, academicAchievement(5));
         students[3] = new Student("Malfoy", "R.T.", 2, academicAchievement(5));
         students[4] = new Student("Silkina", "U.M.", 2, academicAchievement(5));

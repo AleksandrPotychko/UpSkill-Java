@@ -1,3 +1,5 @@
+package com.epam.entity;
+
 public class Test1 {
     private int firstVariable;
     private int secondVariable;

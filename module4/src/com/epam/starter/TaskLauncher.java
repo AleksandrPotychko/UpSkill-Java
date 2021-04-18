@@ -1,10 +1,20 @@
+package com.epam.starter;
+
+import com.epam.entity.Student;
+import com.epam.entity.Test1;
+import com.epam.entity.Test2;
+import com.epam.entity.Train;
+import com.epam.logic.StudentWorker;
+import com.epam.util.init.ArrayInitializer;
+import com.epam.logic.TrainWorker;
+
 import java.util.Arrays;
+
 
 public class TaskLauncher {
 
     private static int FIRST_VARIABLE = 7;
     private static int SECOND_VARIABLE = 3;
-    private static int STUDENT_POPULATION = 10;
     private static int LOWER_BOUNDARY_OF_GRADES = 9;
 
     public static void main(String[] args) {
@@ -26,11 +36,16 @@ public class TaskLauncher {
         System.out.println(test21.getSecondVariable());
 
         //task 3
-        Student.printTopStudents(ArrayInitializer.createStudent(), LOWER_BOUNDARY_OF_GRADES);
+        Student[] students = ArrayInitializer.createStudents();
+        for (Student student : students) {
+            if (StudentWorker.isTopStudent(LOWER_BOUNDARY_OF_GRADES, student))
+                System.out.println(student);
+        }
 
         //task4
-        Train.selectTrainNumber(ArrayInitializer.createTrains());
-        Train.sortTrainNumber(ArrayInitializer.createTrains());
+        Train[] trains = ArrayInitializer.createTrains();
+        TrainWorker.selectTrainNumber(trains);
+        System.out.println(Arrays.toString(TrainWorker.sortTrainNumber(trains)));
 
     }
 }
