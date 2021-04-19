@@ -1,12 +1,12 @@
 package com.epam.starter;
 
-import com.epam.entity.Student;
-import com.epam.entity.Test1;
-import com.epam.entity.Test2;
-import com.epam.entity.Train;
+import com.epam.entity.*;
+import com.epam.logic.CounterWorker;
 import com.epam.logic.StudentWorker;
+import com.epam.logic.TriangleWorker;
 import com.epam.util.init.ArrayInitializer;
 import com.epam.logic.TrainWorker;
+import com.epam.util.init.TriangleInitializer;
 
 import java.util.Arrays;
 
@@ -16,6 +16,8 @@ public class TaskLauncher {
     private static int FIRST_VARIABLE = 7;
     private static int SECOND_VARIABLE = 3;
     private static int LOWER_BOUNDARY_OF_GRADES = 9;
+    private static boolean IS_RANDOM = true;
+    private static int REPETITION_COUNT = 10;
 
     public static void main(String[] args) {
 
@@ -42,10 +44,30 @@ public class TaskLauncher {
                 System.out.println(student);
         }
 
-        //task4
+        //task 4
         Train[] trains = ArrayInitializer.createTrains();
         TrainWorker.selectTrainNumber(trains);
         System.out.println(Arrays.toString(TrainWorker.sortTrainNumber(trains)));
 
+        //task 5
+        Counter counter = new Counter(IS_RANDOM);
+        System.out.println(counter.toString());
+        for (int i = 0; i < REPETITION_COUNT + 1; i++) {
+            CounterWorker.increase(counter);
+            System.out.println(counter.toString());
+        }
+
+        //task 6
+        Time time = new Time();
+        time.setHours(21);
+        time.setMinutes(99);
+        time.setSeconds(17);
+        System.out.println(time);
+
+        //task 7
+        Triangle triangle = TriangleInitializer.createTriangle(1,1,3,1,2,2);
+        System.out.println(TriangleWorker.calculatePerimeter(triangle));
+        System.out.println(TriangleWorker.calculateSquare(triangle));
+        System.out.println(TriangleWorker.findIntersectionPointOfTheMedians(triangle));
+        }
     }
-}
