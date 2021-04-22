@@ -1,10 +1,10 @@
 package com.epam.entity;
 
-public class Points {
+public class Point {
     private double coordinateX;
     private double coordinateY;
 
-    public Points(double coordinateX, double coordinateY) {
+    public Point(double coordinateX, double coordinateY) {
         this.coordinateX = coordinateX;
         this.coordinateY = coordinateY;
     }

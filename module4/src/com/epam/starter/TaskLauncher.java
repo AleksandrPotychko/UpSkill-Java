@@ -1,13 +1,9 @@
 package com.epam.starter;
 
 import com.epam.entity.*;
-import com.epam.logic.CounterWorker;
-import com.epam.logic.StudentWorker;
-import com.epam.logic.TriangleWorker;
+import com.epam.logic.*;
 import com.epam.util.init.ArrayInitializer;
-import com.epam.logic.TrainWorker;
 import com.epam.util.init.TriangleInitializer;
-
 import java.util.Arrays;
 
 
@@ -16,8 +12,14 @@ public class TaskLauncher {
     private static int FIRST_VARIABLE = 7;
     private static int SECOND_VARIABLE = 3;
     private static int LOWER_BOUNDARY_OF_GRADES = 9;
-    private static boolean IS_RANDOM = true;
+    private static final boolean IS_RANDOM = true;
     private static int REPETITION_COUNT = 10;
+    private static int MIN_VALUE = 1;
+    private static int MAX_VALUE = 100;
+    private static int HOURS = 20;
+    private static int MINUTES = 33;
+    private static int SECONDS = 17;
+    private static int INCREASING_NUMBER = 5;
 
     public static void main(String[] args) {
 
@@ -46,11 +48,14 @@ public class TaskLauncher {
 
         //task 4
         Train[] trains = ArrayInitializer.createTrains();
-        TrainWorker.selectTrainNumber(trains);
-        System.out.println(Arrays.toString(TrainWorker.sortTrainNumber(trains)));
+        TrainWorker.getTrainByNumber(trains);
+        TrainWorker.sortTrainNumber(trains);
+        System.out.println(Arrays.toString(trains));
+        TrainWorker.sortTrainDestinationName(trains);
+        System.out.println(Arrays.toString(trains));
 
         //task 5
-        Counter counter = new Counter(IS_RANDOM);
+        Counter counter = new Counter(false, MIN_VALUE,MAX_VALUE);
         System.out.println(counter.toString());
         for (int i = 0; i < REPETITION_COUNT + 1; i++) {
             CounterWorker.increase(counter);
@@ -58,10 +63,9 @@ public class TaskLauncher {
         }
 
         //task 6
-        Time time = new Time();
-        time.setHours(21);
-        time.setMinutes(99);
-        time.setSeconds(17);
+        Time time = new Time(HOURS,MINUTES,SECONDS);
+        System.out.println(time);
+        TimeWorker.changeTime(time, INCREASING_NUMBER,INCREASING_NUMBER,INCREASING_NUMBER);
         System.out.println(time);
 
         //task 7

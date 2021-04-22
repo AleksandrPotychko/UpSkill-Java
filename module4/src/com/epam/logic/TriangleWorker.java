@@ -1,6 +1,6 @@
 package com.epam.logic;
 
-import com.epam.entity.Points;
+import com.epam.entity.Point;
 import com.epam.entity.Triangle;
 
 public class TriangleWorker {
@@ -19,14 +19,14 @@ public class TriangleWorker {
         return sideAB + sideBC + sideAC;
     }
 
-    public static Points findIntersectionPointOfTheMedians(Triangle triangle) {
-        return new Points((triangle.getTriangleVertexA().getCoordinateX() + triangle.getTriangleVertexB().
+    public static Point findIntersectionPointOfTheMedians(Triangle triangle) {
+        return new Point((triangle.getTriangleVertexA().getCoordinateX() + triangle.getTriangleVertexB().
                 getCoordinateX() + triangle.getTriangleVertexC().getCoordinateX()) / 3,
                 (triangle.getTriangleVertexA().getCoordinateY() + triangle.getTriangleVertexB().
                         getCoordinateY() + triangle.getTriangleVertexC().getCoordinateY()) / 3);
     }
 
-    public static double sideLength(Points pointA, Points pointB) {
+    private static double sideLength(Point pointA, Point pointB) {
         return Math.sqrt(Math.pow(pointB.getCoordinateX() - pointA.
                 getCoordinateX(), 2) + Math.pow(pointB.getCoordinateY() - pointA.getCoordinateY(), 2));
     }

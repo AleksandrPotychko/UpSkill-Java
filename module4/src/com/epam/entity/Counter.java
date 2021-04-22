@@ -14,11 +14,13 @@ public class Counter {
         this.maxValue = DEFAULT_MAX_VALUE;
     }
 
-    public Counter(boolean isRandom) {
-        this.minValue = DEFAULT_MIN_VALUE;
-        this.maxValue = DEFAULT_MAX_VALUE;
+    public Counter(boolean isRandom, int minValue, int maxValue) {
+        this.minValue = minValue;
+        this.maxValue = maxValue;
         if (isRandom) {
             this.count = (int) (Math.random() * 100);
+        } else {
+            this.count = DEFAULT_VALUE;
         }
     }
 

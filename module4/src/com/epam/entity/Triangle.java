@@ -1,38 +1,38 @@
 package com.epam.entity;
 
 public class Triangle {
-    private Points triangleVertexA;
-    private Points triangleVertexB;
-    private Points triangleVertexC;
+    private Point triangleVertexA;
+    private Point triangleVertexB;
+    private Point triangleVertexC;
 
 
-    public Triangle(Points triangleVertexA, Points triangleVertexB, Points triangleVertexC) {
+    public Triangle(Point triangleVertexA, Point triangleVertexB, Point triangleVertexC) {
         this.triangleVertexA = triangleVertexA;
         this.triangleVertexB = triangleVertexB;
         this.triangleVertexC = triangleVertexC;
     }
 
-    public Points getTriangleVertexA() {
+    public Point getTriangleVertexA() {
         return triangleVertexA;
     }
 
-    public void setTriangleVertexA(Points triangleVertexA) {
+    public void setTriangleVertexA(Point triangleVertexA) {
         this.triangleVertexA = triangleVertexA;
     }
 
-    public Points getTriangleVertexB() {
+    public Point getTriangleVertexB() {
         return triangleVertexB;
     }
 
-    public void setTriangleVertexB(Points triangleVertexB) {
+    public void setTriangleVertexB(Point triangleVertexB) {
         this.triangleVertexB = triangleVertexB;
     }
 
-    public Points getTriangleVertexC() {
+    public Point getTriangleVertexC() {
         return triangleVertexC;
     }
 
-    public void setTriangleVertexC(Points triangleVertexC) {
+    public void setTriangleVertexC(Point triangleVertexC) {
         this.triangleVertexC = triangleVertexC;
     }
 }

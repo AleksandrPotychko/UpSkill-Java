@@ -16,6 +16,12 @@ public class Time {
         this.seconds = DEFAULT_SECONDS;
     }
 
+    public Time(int hours, int minutes, int seconds) {
+        setHours(hours);
+        setMinutes(minutes);
+        setSeconds(seconds);
+    }
+
     public int getHours() {
         return hours;
     }

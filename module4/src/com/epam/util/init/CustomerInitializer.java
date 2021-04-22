@@ -10,5 +10,4 @@ public class CustomerInitializer {
     public Customer[] customer(int capacity) {
        return customers = new Customer[capacity];
     }
-
 }
