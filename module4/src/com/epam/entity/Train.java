@@ -14,10 +14,6 @@ public class Train {
         this.departureTime = departureTime;
     }
 
-    public boolean isTrainNumb(int inputTrainNumber, Train train) {
-        return inputTrainNumber == train.getTrainNumber();
-    }
-
     public String getDestinationName() {
         return destinationName;
     }

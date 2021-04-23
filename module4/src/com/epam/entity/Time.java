@@ -4,22 +4,14 @@ public class Time {
     private int hours;
     private int minutes;
     private int seconds;
-    private final int DEFAULT_HOURS = 0;
-    private final int DEFAULT_MINUTES = 0;
-    private final int DEFAULT_SECONDS = 0;
     private final int MIN_HOUR_MIN_SEC = 0;
     private final int MAX_MIN_SEC = 60;
 
-    public Time() {
-        this.hours = DEFAULT_HOURS;
-        this.minutes = DEFAULT_MINUTES;
-        this.seconds = DEFAULT_SECONDS;
-    }
 
     public Time(int hours, int minutes, int seconds) {
-        setHours(hours);
-        setMinutes(minutes);
-        setSeconds(seconds);
+        this.hours = hours;
+        this.minutes = minutes;
+        this.seconds = seconds;
     }
 
     public int getHours() {
@@ -31,7 +23,7 @@ public class Time {
         if (MIN_HOUR_MIN_SEC <= hours && hours <= MAX_HOURS) {
             this.hours = hours;
         } else {
-            this.hours = DEFAULT_HOURS;
+            this.hours = MIN_HOUR_MIN_SEC;
         }
     }
 
@@ -43,7 +35,7 @@ public class Time {
         if (MIN_HOUR_MIN_SEC <= minutes && minutes <= MAX_MIN_SEC) {
             this.minutes = minutes;
         } else {
-            this.minutes = DEFAULT_MINUTES;
+            this.minutes = MAX_MIN_SEC;
         }
     }
 
@@ -55,7 +47,7 @@ public class Time {
         if (MIN_HOUR_MIN_SEC <= seconds && seconds <= MAX_MIN_SEC) {
             this.seconds = seconds;
         } else {
-            this.seconds = DEFAULT_SECONDS;
+            this.seconds = MIN_HOUR_MIN_SEC;
         }
     }
 
