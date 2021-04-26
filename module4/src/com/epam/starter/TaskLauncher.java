@@ -2,9 +2,8 @@ package com.epam.starter;
 
 import com.epam.entity.*;
 import com.epam.logic.*;
-import com.epam.util.init.ArrayInitializer;
-import com.epam.util.init.CustomerInitializer;
-import com.epam.util.init.TriangleInitializer;
+import com.epam.util.init.*;
+
 import java.util.Arrays;
 
 
@@ -21,6 +20,13 @@ public class TaskLauncher {
     private static int MINUTES = 33;
     private static int SECONDS = 17;
     private static int INCREASING_NUMBER = 5;
+    private static String AUTHOR = "Frank Herbert";
+    private static String PUBLISHER = "Macmillan and Co";
+    private static int LOWER_LIMIT_PUBLICATION_YEAR = 1900;
+    private static String DESTINATION_POINT = "Dubai";
+    private static String WEEK_DAY = "Monday";
+    private static double DEPARTURE_TIME = 11.15;
+
 
     public static void main(String[] args) {
 
@@ -65,15 +71,34 @@ public class TaskLauncher {
         Time time = new Time(HOURS,MINUTES,SECONDS);
         System.out.println(time);
 
-
         //task 7
         Triangle triangle = TriangleInitializer.createTriangle(1,1,3,1,2,2);
         System.out.println(TriangleWorker.calculatePerimeter(triangle));
         System.out.println(TriangleWorker.calculateSquare(triangle));
         System.out.println(TriangleWorker.findIntersectionPointOfTheMedians(triangle));
-        Customer[] customers = CustomerInitializer.createCustomer(6);
-        CustomerWorker.sortCustomerByAlphabetically(customers);
+
+        //task 8
+        Customer[] customers = CustomerAggregator.createCustomer(6);
+        Arrays.sort(customers, new CustomerByAlphabeticallyComparator());
         System.out.println(Arrays.toString(customers));
-        CustomerWorker.findCreditCardsInTheRange(customers, 0,15);
+        CustomerWorker.findCreditCardsInTheRange(customers, 0,10);
+        System.out.println(Arrays.toString(customers));
+
+        //task 9
+        Book[] books = BookAggregator.createBook(5);
+        for (int i = 0; i < books.length; i++) {
+            System.out.println(BookWorker.findAuthorsBooks(books[i], new String[]{AUTHOR}));
+            System.out.println(BookWorker.findPublisherBooks((books[i]), PUBLISHER));
+            System.out.println(BookWorker.findBooksPublishedAfter(books[i], LOWER_LIMIT_PUBLICATION_YEAR));
+        }
+
+        //task 10
+        Airline[] airlines = AirlineAggregator.createAirline(7);
+        for (int i = 0; i < airlines.length; i++) {
+            System.out.println(AirlineWorker.findPlanesForDestination(airlines[i],DESTINATION_POINT));
+            System.out.println(AirlineWorker.findPlanesForWeekDay(airlines[i],WEEK_DAY));
+            System.out.println(AirlineWorker.
+                    findPlanesForWeekDayAndDepartureTime(airlines[i], WEEK_DAY, DEPARTURE_TIME));
         }
     }
+}

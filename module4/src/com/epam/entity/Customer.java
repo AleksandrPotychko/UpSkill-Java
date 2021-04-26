@@ -9,7 +9,7 @@ public class Customer {
     private int creditCardNumber;
     private int bankAccountNumber;
 
-    public Customer(String surname, String name, String patronymic, String address, int creditCardNumber,
+    public Customer(int id, String surname, String name, String patronymic, String address, int creditCardNumber,
                     int bankAccountNumber) {
         this.surname = surname;
         this.name = name;
@@ -17,11 +17,15 @@ public class Customer {
         this.address = address;
         this.creditCardNumber = creditCardNumber;
         this.bankAccountNumber = bankAccountNumber;
-        id++;
+        this.id = id;
     }
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getSurname() {
@@ -76,12 +80,12 @@ public class Customer {
     public String toString() {
         return "Customer{" +
                 "id = " + id +
-                ", surname='" + surname + '\'' +
-                ", name='" + name + '\'' +
-                ", patronymic='" + patronymic + '\'' +
-                ", address='" + address + '\'' +
-                ", creditCardNumber=" + creditCardNumber +
-                ", bankAccountNumber=" + bankAccountNumber +
+                ", Surname = '" + surname + '\'' +
+                ", Name = '" + name + '\'' +
+                ", Patronymic = '" + patronymic + '\'' +
+                ", Address = '" + address + '\'' +
+                ", Credit card number = " + creditCardNumber +
+                ", Bank account number = " + bankAccountNumber +
                 '}';
     }
 }
