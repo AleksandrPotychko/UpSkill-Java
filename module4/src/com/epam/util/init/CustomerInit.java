@@ -2,7 +2,7 @@ package com.epam.util.init;
 
 import com.epam.entity.Customer;
 
-public class CustomerAggregator {
+public class CustomerInit {
 
     public static Customer[] createCustomer(int capacity) {
        Customer[] customers = new Customer[capacity];

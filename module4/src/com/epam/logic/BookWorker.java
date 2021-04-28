@@ -5,26 +5,26 @@ import com.epam.entity.Book;
 import java.util.Arrays;
 
 public class BookWorker {
-    public static Book findAuthorsBooks (Book books, String[] author) {
-       Book book = null;
-        if (Arrays.equals(author, books.getAuthors())) {
-            book = books;
+    public static Book findAuthorsBook (Book book, String[] author) {
+       Book authorBook = null;
+        if (Arrays.equals(author, book.getAuthors())) {
+            authorBook = book;
         }
-        return book;
+        return authorBook;
     }
 
-    public static Book findPublisherBooks (Book books, String publisher) {
-        Book book = null;
-        if (publisher.equals(books.getPublisher())) {
-            book = books;
+    public static Book findPublisherBook (Book book, String publisher) {
+        Book publisherBook = null;
+        if (publisher.equals(book.getPublisher())) {
+            publisherBook = book;
         }
-        return book;
+        return publisherBook;
     }
 
-    public static Book findBooksPublishedAfter (Book books, int lowerLimitPublicationYear) {
-        Book book = null;
-        if (lowerLimitPublicationYear < books.getPublicationYear()) {
-            book = books;
+    public static Book findBookPublishedAfterYear (Book book, int lowerLimitPublicationYear) {
+        Book publishedAfterYearBook = null;
+        if (lowerLimitPublicationYear < book.getPublicationYear()) {
+            publishedAfterYearBook = book;
         }
         return book;
     }

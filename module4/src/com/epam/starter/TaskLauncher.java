@@ -78,27 +78,29 @@ public class TaskLauncher {
         System.out.println(TriangleWorker.findIntersectionPointOfTheMedians(triangle));
 
         //task 8
-        Customer[] customers = CustomerAggregator.createCustomer(6);
-        Arrays.sort(customers, new CustomerByAlphabeticallyComparator());
+        Customer[] customers = CustomerInit.createCustomer(6);
+        Arrays.sort(customers, new CustomerComparator());
         System.out.println(Arrays.toString(customers));
-        CustomerWorker.findCreditCardsInTheRange(customers, 0,10);
+        for(int i = 0; i < customers.length; i++) {
+            CustomerWorker.findBuyerWhoseCreditCardInTheRange(customers[i], 0, 10);
+        }
         System.out.println(Arrays.toString(customers));
 
         //task 9
         Book[] books = BookAggregator.createBook(5);
         for (int i = 0; i < books.length; i++) {
-            System.out.println(BookWorker.findAuthorsBooks(books[i], new String[]{AUTHOR}));
-            System.out.println(BookWorker.findPublisherBooks((books[i]), PUBLISHER));
-            System.out.println(BookWorker.findBooksPublishedAfter(books[i], LOWER_LIMIT_PUBLICATION_YEAR));
+            System.out.println(BookWorker.findAuthorsBook(books[i], new String[]{AUTHOR}));
+            System.out.println(BookWorker.findPublisherBook((books[i]), PUBLISHER));
+            System.out.println(BookWorker.findBookPublishedAfterYear(books[i], LOWER_LIMIT_PUBLICATION_YEAR));
         }
 
         //task 10
         Airline[] airlines = AirlineAggregator.createAirline(7);
         for (int i = 0; i < airlines.length; i++) {
-            System.out.println(AirlineWorker.findPlanesForDestination(airlines[i],DESTINATION_POINT));
-            System.out.println(AirlineWorker.findPlanesForWeekDay(airlines[i],WEEK_DAY));
+            System.out.println(AirlineWorker.findPlaneForDestination(airlines[i],DESTINATION_POINT));
+            System.out.println(AirlineWorker.findPlaneForWeekDay(airlines[i],WEEK_DAY));
             System.out.println(AirlineWorker.
-                    findPlanesForWeekDayAndDepartureTime(airlines[i], WEEK_DAY, DEPARTURE_TIME));
+                    findPlaneForWeekDayAndDepartureTime(airlines[i], WEEK_DAY, DEPARTURE_TIME));
         }
     }
 }

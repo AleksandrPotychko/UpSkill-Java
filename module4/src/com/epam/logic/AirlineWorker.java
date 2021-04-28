@@ -3,35 +3,35 @@ package com.epam.logic;
 import com.epam.entity.Airline;
 
 public class AirlineWorker {
-    public static Airline findPlanesForDestination(Airline airline, String destinationPoint) {
-        Airline airline1 = null;
+    public static Airline findPlaneForDestination(Airline airline, String destinationPoint) {
+        Airline planeForDestination = null;
         if (destinationPoint.equals(airline.getDestinationPoint())) {
-            airline1 = airline;
+            planeForDestination = airline;
         }
-        return airline1;
+        return planeForDestination;
     }
 
-    public static Airline findPlanesForWeekDay(Airline airline, String weekDay) {
-        Airline airline1 = null;
+    public static Airline findPlaneForWeekDay(Airline airline, String weekDay) {
+        Airline planeForWeekDay = null;
         String[] weekDays = airline.getWeekDays();
         for (int i = 0; i < weekDays.length; i++) {
             if (weekDay.equals(weekDays[i])) {
-                airline1 = airline;
+                planeForWeekDay = airline;
             }
         }
-        return airline1;
+        return planeForWeekDay;
     }
 
-    public static Airline findPlanesForWeekDayAndDepartureTime(Airline airline, String weekDay, double departureTime) {
-        Airline airline1 = null;
+    public static Airline findPlaneForWeekDayAndDepartureTime(Airline airline, String weekDay, double departureTime) {
+        Airline plane = null;
         String[] weekDays = airline.getWeekDays();
         for (int i = 0; i < weekDays.length; i++) {
             if (weekDay.equals(weekDays[i])) {
                 if (departureTime < airline.getDepartureTime()) {
-                    airline1 = airline;
+                    plane = airline;
                 }
             }
         }
-        return airline1;
+        return plane;
     }
 }

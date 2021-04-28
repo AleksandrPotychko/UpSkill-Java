@@ -5,14 +5,12 @@ import com.epam.entity.Customer;
 
 public class CustomerWorker {
 
-    public static Customer[] findCreditCardsInTheRange(Customer[] customers, int minBorder, int maxBorder) {
-        for (int i = 0; i < customers.length; i++) {
-            if (customers[i].getCreditCardNumber() > minBorder && maxBorder > customers[i].getCreditCardNumber()) {
-           customers[i] = customers[i];
-            } else {
-                customers[i] = null;
-            }
+    public static Customer findBuyerWhoseCreditCardInTheRange(Customer customer, int minBorder, int maxBorder) {
+        final int BUYER_CREDIT_CARD_NUMBER = customer.getCreditCardNumber();
+        Customer BUYER = null;
+        if (BUYER_CREDIT_CARD_NUMBER > minBorder && maxBorder > BUYER_CREDIT_CARD_NUMBER) {
+            BUYER = customer;
         }
-        return customers;
+        return BUYER;
     }
 }
