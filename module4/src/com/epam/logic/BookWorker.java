@@ -1,31 +1,38 @@
 package com.epam.logic;
 
 import com.epam.entity.Book;
-
+import java.util.ArrayList;
 import java.util.Arrays;
 
+
 public class BookWorker {
-    public static Book findAuthorsBook (Book book, String[] author) {
-       Book authorBook = null;
-        if (Arrays.equals(author, book.getAuthors())) {
-            authorBook = book;
+    public static ArrayList<Book> findAuthorsBooks (Book[] books, String[] author) {
+        ArrayList<Book> authorBooks = new ArrayList<>();
+        for (int i = 0; i < books.length; i++) {
+            if (Arrays.equals(author, books[i].getAuthors())) {
+                authorBooks.add(books[i]);
+            }
         }
-        return authorBook;
+        return authorBooks;
     }
 
-    public static Book findPublisherBook (Book book, String publisher) {
-        Book publisherBook = null;
-        if (publisher.equals(book.getPublisher())) {
-            publisherBook = book;
+    public static ArrayList<Book> findPublisherBooks (Book[] books, String publisher) {
+        ArrayList<Book> publisherBooks = new ArrayList<>();
+        for (int i = 0; i < books.length; i++) {
+            if (publisher.equals(books[i].getPublisher())) {
+                publisherBooks.add(books[i]);
+            }
         }
-        return publisherBook;
+        return publisherBooks;
     }
 
-    public static Book findBookPublishedAfterYear (Book book, int lowerLimitPublicationYear) {
-        Book publishedAfterYearBook = null;
-        if (lowerLimitPublicationYear < book.getPublicationYear()) {
-            publishedAfterYearBook = book;
+    public static ArrayList<Book> findBooksPublishedAfterYear (Book[] books, int lowerLimitPublicationYear) {
+        ArrayList<Book> publishedBooks = new ArrayList<>();
+        for (int i = 0; i < books.length; i++) {
+            if (lowerLimitPublicationYear < books[i].getPublicationYear()) {
+                publishedBooks.add(books[i]);
+            }
         }
-        return book;
+        return publishedBooks;
     }
 }

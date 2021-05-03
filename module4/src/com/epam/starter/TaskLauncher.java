@@ -1,10 +1,14 @@
 package com.epam.starter;
 
 import com.epam.entity.*;
+import com.epam.entity.Customer;
 import com.epam.logic.*;
 import com.epam.util.init.*;
 
+import java.util.AbstractList;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 
 public class TaskLauncher {
@@ -29,7 +33,6 @@ public class TaskLauncher {
 
 
     public static void main(String[] args) {
-
         //task 1
         Test1 test1 = new Test1(FIRST_VARIABLE, SECOND_VARIABLE);
         test1.printVariables();
@@ -81,26 +84,19 @@ public class TaskLauncher {
         Customer[] customers = CustomerInit.createCustomer(6);
         Arrays.sort(customers, new CustomerComparator());
         System.out.println(Arrays.toString(customers));
-        for(int i = 0; i < customers.length; i++) {
-            CustomerWorker.findBuyerWhoseCreditCardInTheRange(customers[i], 0, 10);
-        }
-        System.out.println(Arrays.toString(customers));
+        System.out.println(CustomerWorker.findBuyersWhoseCreditCardInTheRange(customers, 0, 10));
 
         //task 9
         Book[] books = BookAggregator.createBook(5);
-        for (int i = 0; i < books.length; i++) {
-            System.out.println(BookWorker.findAuthorsBook(books[i], new String[]{AUTHOR}));
-            System.out.println(BookWorker.findPublisherBook((books[i]), PUBLISHER));
-            System.out.println(BookWorker.findBookPublishedAfterYear(books[i], LOWER_LIMIT_PUBLICATION_YEAR));
-        }
+        System.out.println(BookWorker.findAuthorsBooks(books, new String[]{AUTHOR}));
+        System.out.println(BookWorker.findPublisherBooks(books, PUBLISHER));
+        System.out.println(BookWorker.findBooksPublishedAfterYear(books, LOWER_LIMIT_PUBLICATION_YEAR));
 
         //task 10
         Airline[] airlines = AirlineAggregator.createAirline(7);
-        for (int i = 0; i < airlines.length; i++) {
-            System.out.println(AirlineWorker.findPlaneForDestination(airlines[i],DESTINATION_POINT));
-            System.out.println(AirlineWorker.findPlaneForWeekDay(airlines[i],WEEK_DAY));
-            System.out.println(AirlineWorker.
-                    findPlaneForWeekDayAndDepartureTime(airlines[i], WEEK_DAY, DEPARTURE_TIME));
-        }
+        System.out.println(AirlineWorker.findPlanesForDestination(airlines,DESTINATION_POINT));
+        System.out.println(AirlineWorker.findPlanesForWeekDay(airlines,WEEK_DAY));
+        System.out.println(AirlineWorker.findPlanesForDepartureTime(AirlineWorker.
+                    findPlanesForWeekDay(airlines, WEEK_DAY), DEPARTURE_TIME));
     }
 }
