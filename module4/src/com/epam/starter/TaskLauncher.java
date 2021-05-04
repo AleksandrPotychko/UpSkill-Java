@@ -82,7 +82,7 @@ public class TaskLauncher {
 
         //task 8
         Customer[] customers = CustomerInit.createCustomer(6);
-        Arrays.sort(customers, new CustomerComparator());
+        Arrays.sort(customers);
         System.out.println(Arrays.toString(customers));
         System.out.println(CustomerWorker.findBuyersWhoseCreditCardInTheRange(customers, 0, 10));
 

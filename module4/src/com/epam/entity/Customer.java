@@ -1,6 +1,6 @@
 package com.epam.entity;
 
-public class Customer {
+public class Customer implements Comparable<Customer> {
     private int id = 0;
     private String surname;
     private String name;
@@ -87,5 +87,10 @@ public class Customer {
                 ", Credit card number = " + creditCardNumber +
                 ", Bank account number = " + bankAccountNumber +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Customer o) {
+        return  surname.compareTo(o.getSurname());
     }
 }
