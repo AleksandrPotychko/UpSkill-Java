@@ -1,4 +1,4 @@
-package com.epam.aggregation.util.init;
+package com.epam.aggregation.logic;
 
 import com.epam.aggregation.entity.Sentence;
 import com.epam.aggregation.entity.Text;
@@ -13,11 +13,11 @@ public class TextAggregator {
         System.out.println(text);
     }
 
-    public static List<Sentence> createSentences(Sentence string, Sentence stringTwo, Sentence string3) {
+    public static List<Sentence> createSentences(Sentence string, Sentence stringTwo, Sentence stringThree) {
         List<Sentence> sentences = new ArrayList<>();
         sentences.add(string);
         sentences.add(stringTwo);
-        sentences.add(string3);
+        sentences.add(stringThree);
         return sentences;
     }
 }
