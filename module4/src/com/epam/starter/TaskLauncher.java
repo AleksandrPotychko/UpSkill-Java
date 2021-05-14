@@ -5,10 +5,8 @@ import com.epam.entity.Customer;
 import com.epam.logic.*;
 import com.epam.util.init.*;
 
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 
 public class TaskLauncher {
@@ -96,7 +94,7 @@ public class TaskLauncher {
         Airline[] airlines = AirlineAggregator.createAirline(7);
         System.out.println(AirlineWorker.findPlanesForDestination(airlines,DESTINATION_POINT));
         System.out.println(AirlineWorker.findPlanesForWeekDay(airlines,WEEK_DAY));
-        System.out.println(AirlineWorker.findPlanesForDepartureTime(AirlineWorker.
+        System.out.println(AirlineWorker.findPlanesForDepartureTime((ArrayList<Airline>) AirlineWorker.
                     findPlanesForWeekDay(airlines, WEEK_DAY), DEPARTURE_TIME));
     }
 }
