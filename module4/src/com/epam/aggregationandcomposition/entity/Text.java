@@ -1,5 +1,4 @@
-package com.epam.aggregation.entity;
-
+package com.epam.aggregationandcomposition.entity;
 
 import java.util.List;
 import java.util.Objects;
@@ -31,6 +30,14 @@ public class Text {
 
     public void setBody(List<Sentence> body) {
         this.body = body;
+    }
+
+    public void printText() {
+        System.out.println(headline);
+        for (Sentence sentence : this.body) {
+            System.out.print(sentence);
+        }
+        System.out.println();
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.epam.aggregation.entity;
+package com.epam.aggregationandcomposition.entity;
 
 import java.util.List;
 import java.util.Objects;
@@ -46,6 +46,25 @@ public class State {
 
     public void setStateArea(int stateArea) {
         this.stateArea = stateArea;
+    }
+
+    public void printCapital() {
+        System.out.println("The capital of the " + getName() + " is " + getCapital());
+    }
+
+    public void printNumberOfRegions() {
+        System.out.println("Number of regions in " + getName() + ": " + getRegions().size());
+    }
+
+    public void printStateArea() {
+        System.out.println("State area = " + getStateArea());
+    }
+
+    public void printRegionalCenters() {
+        int count = getRegions().size();
+        for(int i = 0; i < count; i++) {
+            getRegions().get(i).printRegionalCenter();
+        }
     }
 
     @Override

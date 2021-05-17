@@ -1,19 +1,20 @@
-package com.epam.aggregation.entity;
+package com.epam.aggregationandcomposition.entity;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Sentence {
-    public String sentence;
+    public List<Word> sentence;
 
-    public Sentence(String sentence) {
+    public Sentence(List<Word> sentence) {
         this.sentence = sentence;
     }
 
-    public String getSentence() {
+    public List<Word> getSentence() {
         return sentence;
     }
 
-    public void setSentence(String sentence) {
+    public void setSentence(List<Word> sentence) {
         this.sentence = sentence;
     }
 
@@ -32,6 +33,6 @@ public class Sentence {
 
     @Override
     public String toString() {
-        return sentence;
+        return " " + sentence;
     }
 }

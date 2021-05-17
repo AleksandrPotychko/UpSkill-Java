@@ -1,4 +1,4 @@
-package com.epam.aggregation.entity;
+package com.epam.aggregationandcomposition.entity;
 
 import java.util.List;
 import java.util.Objects;
@@ -36,6 +36,10 @@ public class Region {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void printRegionalCenter() {
+        System.out.println("The regional center of the " + getName() + ", is " + getRegionalCenter());
     }
 
     @Override

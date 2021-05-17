@@ -1,4 +1,4 @@
-package com.epam.aggregation.entity;
+package com.epam.aggregationandcomposition.entity;
 
 import java.util.Objects;
 
