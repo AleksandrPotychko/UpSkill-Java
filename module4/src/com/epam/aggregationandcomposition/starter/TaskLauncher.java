@@ -1,9 +1,7 @@
 package com.epam.aggregationandcomposition.starter;
 
 import com.epam.aggregationandcomposition.entity.*;
-import com.epam.aggregationandcomposition.util.CarInitializer;
-import com.epam.aggregationandcomposition.util.StateInitializer;
-import com.epam.aggregationandcomposition.util.TextInitializer;
+import com.epam.aggregationandcomposition.util.*;
 
 public class TaskLauncher {
     public static final int POWER_ENGINE = 500;
@@ -16,41 +14,41 @@ public class TaskLauncher {
     public static String CITY_NAME = "Minsk";
     public static String COUNTRY_NAME = "Minsk";
     public static String WORD = "Heading";
+    public static String NAME_BANK = "Belarusbank";
     public static final int STATE_AREA = 15000;
     public static final int ACCOUNT_ID = 5;
 
     public static void main(String[] args) {
-
         // Task 1
-        Text text = new Text(TextInitializer.createWord(WORD), TextInitializer.createListSentence());
+        Text text = new Text(new Word(WORD), TextInitializer.createListSentence());
         text.printText();
-        text.addSentence(TextInitializer.createSentence(TextInitializer.createListWords()));
+        text.addSentence(new Sentence(TextInitializer.createListWords()));
         text.printText();
 
         // Task 2
-        Car reno = new Car(CarInitializer.createEngine(POWER_ENGINE),BRAND, fuelInGasTank,
-                CarInitializer.wheelsList(DIAMETER_WHEEL));
+        Car reno = new Car(new Engine(POWER_ENGINE),BRAND, fuelInGasTank, CarInitializer.wheelsList(DIAMETER_WHEEL));
         reno.printCarBrand();
         reno.drive(REPETITION_RATE);
         reno.refuel(NUMBER_OF_CAR_REFUELS);
-        reno.changeWheel(NUMBER_OF_CHANGE_WHEEL,CarInitializer.createWheel(DIAMETER_WHEEL));
+        reno.changeWheel(NUMBER_OF_CHANGE_WHEEL, new Wheel(DIAMETER_WHEEL));
 
         // Task 3
-        State belarus = new State(COUNTRY_NAME, StateInitializer.
-                createRegions(), StateInitializer.city(CITY_NAME),STATE_AREA);
+        State belarus = new State(COUNTRY_NAME, StateInitializer.createRegions(), new City(CITY_NAME),STATE_AREA);
         belarus.printCapital();
         belarus.printNumberOfRegions();
         belarus.printStateArea();
         belarus.printRegionalCenters();
 
-//        // Task 4
-//        Bank belgaz = new Bank("Belgazprom", BankWorker.createClients());
-//        Client gwen = new Client("Gwen",BankWorker.createAccounts());
-//        System.out.println(gwen);
-//        System.out.println(BankWorker.calculateSumAccountsOfClient(gwen));
-//        System.out.println(BankWorker.calculatePositiveSumAccountsOfClient(gwen));
-//        System.out.println(BankWorker.calculateNegativeSumAccountsOfClient(gwen));
-//        System.out.println(belgaz);
-//        System.out.println(BankWorker.findAccountById(belgaz,ACCOUNT_ID));
+        // Task 4
+        Bank bank = new Bank(NAME_BANK, BankInitializer.createClients());
+        System.out.println(bank.getClients().get(0).calculatePositiveSum());
+        System.out.println(bank.getClients().get(1).calculateNegativeSum());
+        System.out.println(bank.getClients().get(2).calculateBalanceAccounts());
+        System.out.println(bank.calculatePositiveSumAccountsAllClients());
+        System.out.println(bank.calculateNegativeSumAccountsAllClients());
+        System.out.println(bank.calculateBalanceAccountsAllClients());
+        System.out.println(bank.findAccountById(ACCOUNT_ID));
+        bank.getClients().get(1).sortByBalance();
+        System.out.println(bank.getClients().get(1).getAccounts());
     }
 }

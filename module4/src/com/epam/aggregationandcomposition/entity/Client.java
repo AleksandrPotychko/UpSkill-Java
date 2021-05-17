@@ -1,6 +1,6 @@
-package com.epam.aggregation.entity;
+package com.epam.aggregationandcomposition.entity;
 
-
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -38,6 +38,45 @@ public class Client {
 
     public void setAccounts(List<Account> accounts) {
         this.accounts = accounts;
+    }
+
+    public double calculatePositiveSum() {
+        int count = getAccounts().size();
+        double sum = 0;
+        double balance;
+        for (int i = 0; i < count; i++) {
+            balance = getAccounts().get(i).getBalance();
+            if (balance > 0) {
+                sum += balance;
+            }
+        }
+        return sum;
+    }
+
+    public double calculateNegativeSum() {
+        int count = getAccounts().size();
+        double sum = 0;
+        double balance;
+        for (int i = 0; i < count; i++) {
+            balance = getAccounts().get(i).getBalance();
+            if (balance < 0) {
+                sum += balance;
+            }
+        }
+        return sum;
+    }
+
+    public double calculateBalanceAccounts() {
+        int count = getAccounts().size();
+        double sum = 0;
+        for (int i = 0; i < count; i++) {
+            sum += getAccounts().get(i).getBalance();
+        }
+        return sum;
+    }
+
+    public void sortByBalance() {
+        accounts.sort(Comparator.comparing(Account::getBalance));
     }
 
     @Override

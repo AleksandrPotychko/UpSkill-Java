@@ -1,4 +1,4 @@
-package com.epam.aggregation.entity;
+package com.epam.aggregationandcomposition.entity;
 
 import java.util.Objects;
 
@@ -6,7 +6,7 @@ public class Account {
     private static int startId  = 0;
     private int id;
     private double balance;
-    private boolean isOpen = true;
+    private boolean isBlocked = false;
 
     public Account(double balance) {
         this.balance = balance;
@@ -25,12 +25,12 @@ public class Account {
         this.balance = balance;
     }
 
-    public boolean isOpen() {
-        return isOpen;
+    public boolean isBlocked() {
+        return isBlocked;
     }
 
-    public void setOpen(boolean open) {
-        isOpen = open;
+    public void setBlocked(boolean blocked) {
+        isBlocked = blocked;
     }
 
     @Override
@@ -38,12 +38,12 @@ public class Account {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Account account = (Account) o;
-        return id == account.id && Double.compare(account.balance, balance) == 0 && isOpen == account.isOpen;
+        return id == account.id && Double.compare(account.balance, balance) == 0 && isBlocked == account.isBlocked;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, balance, isOpen);
+        return Objects.hash(id, balance, isBlocked);
     }
 
     @Override

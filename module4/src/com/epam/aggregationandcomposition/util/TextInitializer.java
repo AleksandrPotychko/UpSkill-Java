@@ -6,14 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TextInitializer {
-    public static Word createWord(String word) {
-        return new Word(word);
-    }
-
-    public static Sentence createSentence(List<Word> words) {
-        return new Sentence(words);
-    }
-
     public static List<Sentence> createListSentence() {
         List<Sentence> sentenceList = new ArrayList<>();
         sentenceList.add(new Sentence(TextInitializer.createListWords()));

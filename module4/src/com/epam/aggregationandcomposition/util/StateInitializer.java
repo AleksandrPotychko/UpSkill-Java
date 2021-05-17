@@ -7,10 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StateInitializer {
-    public static City city(String nameCity) {
-        return new City(nameCity);
-    }
-
     public static List<City> createCities() {
         List<City> cities = new ArrayList<>();
         cities.add(new City("Minsk"));

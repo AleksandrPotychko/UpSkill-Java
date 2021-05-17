@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Sentence {
-    public List<Word> sentence;
+    private List<Word> sentence;
 
     public Sentence(List<Word> sentence) {
         this.sentence = sentence;
