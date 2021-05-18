@@ -40,6 +40,10 @@ public class Text {
         System.out.println();
     }
 
+    public void printHeading() {
+        System.out.println(headline);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
