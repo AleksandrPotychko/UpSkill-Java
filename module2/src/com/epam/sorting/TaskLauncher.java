@@ -1,8 +1,6 @@
 package com.epam.sorting;
 
 
-import java.util.Arrays;
-
 public class TaskLauncher {
     private static final int LENGTH_ARRAY = 10;
     private static final int SHORT_ARRAY_LENGTH = 5;
@@ -17,16 +15,19 @@ public class TaskLauncher {
                 buildArray(SHORT_ARRAY_LENGTH, MIN_BORDER, MAX_BORDER), INSERT_INDEX_INTO_ARRAY);
 
         //task 2
-        //System.out.println(Arrays.toString(ArraySorter.applySelectionSort(ArrayInitializer.buildArray(LENGTH_ARRAY)
-        // )));
+        System.out.println(Arrays.toString(SortingImplementer.
+                applySelectionSort(ArrayInitializer.buildArray(LENGTH_ARRAY))));
 
         //task 3
-        //System.out.println(Arrays.toString(ArraySorter.applyBubbleSort(ArrayInitializer.buildArray(LENGTH_ARRAY))));
+        System.out.println(Arrays.toString(SortingImplementer.
+                applyBubbleSort(ArrayInitializer.buildArray(LENGTH_ARRAY))));
 
         // task 4
-        //System.out.println(Arrays.toString(ArraySorter.applySelectionSort(ArrayInitializer.buildArray(LENGTH_ARRAY))));
+        System.out.println(Arrays.toString(SortingImplementer.
+                applySelectionSort(ArrayInitializer.buildArray(LENGTH_ARRAY))));
 
         // task 5
-        // System.out.println(Arrays.toString(ArraySorter.applyShellSort(ArrayInitializer.buildArray(LENGTH_ARRAY))));
+        System.out.println(Arrays.toString(SortingImplementer.
+                applyShellSort(ArrayInitializer.buildArray(LENGTH_ARRAY))));
     }
 }
