@@ -1,7 +1,5 @@
 package com.epam.decomposition;
 
-import com.epam.sorting.ArrayInitializer;
-
 import java.util.Arrays;
 
 public class TaskLauncher {
@@ -81,7 +79,7 @@ public class TaskLauncher {
                 buildArray(LENGTH_ARRAY, MIN_BORDER, LARGE_NUMBER));
 
         //task 16
-        System.out.println(Arrays.toString(NumbersAnalyzer.findSumOddNumberAndEvenDigits(ARRAY)));
+       // System.out.println(Arrays.toString(NumbersAnalyzer.findSumOddNumberAndEvenDigits(ARRAY)));
 
         //task 17
         System.out.println(NumbersAnalyzer.calculateNumberOfSubtractions(LARGE_NUMBER));

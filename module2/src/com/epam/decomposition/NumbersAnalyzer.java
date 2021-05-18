@@ -3,8 +3,7 @@ package com.epam.decomposition;
 
 import java.util.ArrayList;
 
-public class NumbersAnalyzer {
-    //task 1
+public class NumbersAnalyzer { //task 1
     public static int findLeastCommonMultiple(int firstNumber, int secondNumber) {
         return ((firstNumber * secondNumber) / findGreatestCommonDivisor(firstNumber, secondNumber));
     }
@@ -111,25 +110,6 @@ public class NumbersAnalyzer {
         } else {
             return -1;
         }
-    }
-
-    // task 12 mentor
-    public static ArrayList<Integer> findNumbersEqualsToSumOfDigitsOfNumberKAndLessThanNumberN(int k, int n) {
-        ArrayList<Integer> numbers = new ArrayList<>();
-        int minNumber = (int) (k % 9 * Math.pow(10.0, k / 9)) + (int) (Math.pow(10.0, k / 9)) - 1;
-        if (k > 0 && n >= minNumber) {
-            for (int i = n; i >= minNumber; i--) {
-                int[] digits = splitNumberIntoDigits(i);
-                int sum = 0;
-                for (int digit : digits) {
-                    sum += digit;
-                }
-                if (sum == k) {
-                    numbers.add(i);
-                }
-            }
-        }
-        return numbers;
     }
 
     //task 13
