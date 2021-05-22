@@ -4,15 +4,9 @@ import java.util.Objects;
 
 public class File {
     private String fileName;
-    private StringBuilder text;
 
     public File(String fileName) {
         this.fileName = fileName;
-    }
-
-    public File(String fileName, StringBuilder text) {
-        this.fileName = fileName;
-        this.text = text;
     }
 
     public String getFileName() {
@@ -23,25 +17,8 @@ public class File {
         this.fileName = fileName;
     }
 
-    public StringBuilder getText() {
-        return text;
-    }
-
-    public void setText(StringBuilder text) {
-        this.text = text;
-    }
-
     public void renameFile(String fileName) {
         this.fileName = fileName;
-    }
-
-    public void printFile() {
-        System.out.println("File {" + fileName + ", text: " + text + '}');
-    }
-
-    public void appendTextInFile(String appendText) {
-        StringBuilder stringBuilder = new StringBuilder(getText());
-        setText(stringBuilder.append(appendText));
     }
 
     @Override
@@ -59,8 +36,6 @@ public class File {
 
     @Override
     public String toString() {
-        return "File {" + fileName +
-                ", text: " + text +
-                '}';
+        return "File {" + fileName + '}';
     }
 }

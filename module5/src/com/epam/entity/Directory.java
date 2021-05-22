@@ -6,18 +6,20 @@ import java.util.Objects;
 public class Directory {
     private String directoryName;
     private List<File> files;
+    private List<TextFile> textFiles;
 
-    public Directory(String directoryName, List<File> files) {
+    public Directory(String directoryName, List<File> files, List<TextFile> textFiles) {
         this.directoryName = directoryName;
         this.files = files;
+        this.textFiles = textFiles;
     }
 
-    public void createEmptyFile(String fileName) {
+    public void createFile(String fileName) {
         files.add(new File(fileName));
     }
 
     public void createFile(String fileName, StringBuilder text) {
-        files.add(new File(fileName, text));
+        files.add(new TextFile(fileName, text));
     }
 
     public void renameDirectory(String directoryName) {
@@ -25,7 +27,7 @@ public class Directory {
     }
 
     public void printDirectory() {
-        System.out.println("Directory: " + directoryName + ", files =" + files + '.');
+        System.out.println("Directory {" + directoryName + files + textFiles + '}');
     }
 
     public void deleteFile(String nameFile) {
@@ -52,23 +54,33 @@ public class Directory {
         this.files = files;
     }
 
+    public List<TextFile> getTextFiles() {
+        return textFiles;
+    }
+
+    public void setTextFiles(List<TextFile> textFiles) {
+        this.textFiles = textFiles;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Directory directory = (Directory) o;
-        return Objects.equals(directoryName, directory.directoryName) && Objects.equals(files, directory.files);
+        return Objects.equals(directoryName, directory.directoryName) && Objects.equals(files, directory.files) && Objects.equals(textFiles, directory.textFiles);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(directoryName, files);
+        return Objects.hash(directoryName, files, textFiles);
     }
 
     @Override
     public String toString() {
-        return "Directory: " + directoryName +
-                ", files: " + files +
-                '.';
+        return "Directory {" +
+                directoryName +
+                files +
+                textFiles +
+                '}';
     }
 }

@@ -10,13 +10,14 @@ public class TaskLauncher {
 
     public static void main(String[] args) {
         // Task 1
-        Directory directory = new Directory(directoryName, FileInitializer.createFiles());
-        directory.createEmptyFile(FILE_NAME);
+        Directory directory = new Directory(directoryName,
+                FileInitializer.createFiles(), FileInitializer.createTextFiles());
+        directory.createFile(FILE_NAME);
         directory.getFiles().get(0).renameFile(SECOND_FILE_NAME);
-        directory.getFiles().get(2).printFile();
-        directory.getFiles().get(1).appendTextInFile(" append Text");
         System.out.println(directory);
         directory.deleteFile(FILE_NAME);
+        System.out.println(directory);
+        directory.getTextFiles().get(1).appendTextInFile("Lalalend");
         System.out.println(directory);
     }
 }
