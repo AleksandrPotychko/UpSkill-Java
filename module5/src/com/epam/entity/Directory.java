@@ -6,12 +6,10 @@ import java.util.Objects;
 public class Directory {
     private String directoryName;
     private List<File> files;
-    private List<TextFile> textFiles;
 
-    public Directory(String directoryName, List<File> files, List<TextFile> textFiles) {
+    public Directory(String directoryName, List<File> files) {
         this.directoryName = directoryName;
         this.files = files;
-        this.textFiles = textFiles;
     }
 
     public void createFile(String fileName) {
@@ -27,7 +25,7 @@ public class Directory {
     }
 
     public void printDirectory() {
-        System.out.println("Directory {" + directoryName + files + textFiles + '}');
+        System.out.println("Directory {" + directoryName + files + '}');
     }
 
     public void deleteFile(String nameFile) {
@@ -54,25 +52,17 @@ public class Directory {
         this.files = files;
     }
 
-    public List<TextFile> getTextFiles() {
-        return textFiles;
-    }
-
-    public void setTextFiles(List<TextFile> textFiles) {
-        this.textFiles = textFiles;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Directory directory = (Directory) o;
-        return Objects.equals(directoryName, directory.directoryName) && Objects.equals(files, directory.files) && Objects.equals(textFiles, directory.textFiles);
+        return Objects.equals(directoryName, directory.directoryName) && Objects.equals(files, directory.files);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(directoryName, files, textFiles);
+        return Objects.hash(directoryName, files);
     }
 
     @Override
@@ -80,7 +70,6 @@ public class Directory {
         return "Directory {" +
                 directoryName +
                 files +
-                textFiles +
                 '}';
     }
 }

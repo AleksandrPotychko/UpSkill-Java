@@ -14,14 +14,11 @@ public class TaskLauncher {
     public static void main(String[] args) {
 
         // Task 1
-        Directory directory = new Directory(directoryName,
-                FileInitializer.createFiles(), FileInitializer.createTextFiles());
+        Directory directory = new Directory(directoryName, FileInitializer.createFiles());
         directory.createFile(FILE_NAME);
         directory.getFiles().get(0).renameFile(SECOND_FILE_NAME);
         System.out.println(directory);
         directory.deleteFile(FILE_NAME);
-        System.out.println(directory);
-        directory.getTextFiles().get(1).appendTextInFile("Lalalend");
         System.out.println(directory);
 
         // Task 2

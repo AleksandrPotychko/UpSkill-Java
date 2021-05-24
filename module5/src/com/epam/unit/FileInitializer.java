@@ -9,13 +9,8 @@ public class FileInitializer {
     public static List<File> createFiles() {
         List<File> files = new ArrayList<>();
         files.add(new File("First file"));
+        files.add(new TextFile("Second", new StringBuilder("Text in second file")));
+        files.add(new TextFile("Text file", new StringBuilder("Hello word.")));
         return files;
-    }
-
-    public static List<TextFile> createTextFiles() {
-        List<TextFile> textFiles = new ArrayList<>();
-        textFiles.add(new TextFile("Second", new StringBuilder("Text in second file")));
-        textFiles.add(new TextFile("Text file", new StringBuilder("Hello word.")));
-        return textFiles;
     }
 }

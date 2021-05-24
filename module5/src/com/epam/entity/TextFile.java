@@ -14,11 +14,6 @@ public class TextFile extends File {
         this.text = text;
     }
 
-    public void appendTextInFile(String appendText) {
-        StringBuilder stringBuilder = new StringBuilder(getText());
-        setText(stringBuilder.append(" ").append(appendText));
-    }
-
     public void printFile() {
         System.out.println("File {" + getFileName() + ", text: " + text + '}');
     }
