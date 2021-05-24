@@ -1,9 +1,9 @@
 package com.epam.starter;
 
 import com.epam.entity.Directory;
-import com.epam.entity.Payment;
+import com.epam.payment.Payment;
 import com.epam.unit.FileInitializer;
-import com.epam.unit.ProductInitializer;
+import com.epam.payment.ProductInitializer;
 
 public class TaskLauncher {
     private static String directoryName = "Folder";

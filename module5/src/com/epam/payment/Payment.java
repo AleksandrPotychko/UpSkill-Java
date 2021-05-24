@@ -1,4 +1,4 @@
-package com.epam.entity;
+package com.epam.payment;
 
 import java.util.ArrayList;
 import java.util.List;

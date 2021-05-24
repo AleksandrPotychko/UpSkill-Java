@@ -1,6 +1,5 @@
-package com.epam.unit;
+package com.epam.payment;
 
-import com.epam.entity.Product;
 import java.util.ArrayList;
 import java.util.List;
 

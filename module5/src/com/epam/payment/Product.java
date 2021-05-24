@@ -1,4 +1,4 @@
-package com.epam.entity;
+package com.epam.payment;
 
 import java.util.Objects;
 
