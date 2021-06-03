@@ -32,7 +32,7 @@ public class Product {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return Double.compare(product.price, price) == 0 && Objects.equals(name, product.name);
+        return Objects.equals(name, product.name) && Objects.equals(price, product.price);
     }
 
     @Override

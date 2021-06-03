@@ -1,6 +1,8 @@
 package com.epam.payment.unit;
 
 import com.epam.payment.entity.Product;
+
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 

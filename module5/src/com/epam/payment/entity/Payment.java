@@ -1,5 +1,6 @@
 package com.epam.payment.entity;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -8,39 +9,40 @@ public class Payment {
     private String buyerName;
     private ShoppingBasket shoppingBasket;
 
-    public Payment(String buyerName, ShoppingBasket shoppingBasket) {
+    public Payment(String buyerName) {
         this.buyerName = buyerName;
-        this.shoppingBasket = shoppingBasket;
+        this.shoppingBasket = new ShoppingBasket();
     }
 
     public static class ShoppingBasket {
         private List<Product> products = new ArrayList<>();
-        private double amountOfPurchase;
+        private BigDecimal amountOfPurchase = new BigDecimal("0.0");
 
         public void setProducts(List<Product> products) {
             this.products = products;
         }
 
-        public void setAmountOfPurchase(double amountOfPurchase) {
+        public void setAmountOfPurchase(BigDecimal amountOfPurchase) {
             this.amountOfPurchase = amountOfPurchase;
         }
 
         public void addProduct(Product product) {
             products.add(product);
-            amountOfPurchase += product.getPrice();
+            setAmountOfPurchase(amountOfPurchase.add(BigDecimal.valueOf(product.getPrice())));
         }
 
         public void deleteProduct(Product product) {
-            amountOfPurchase -= product.getPrice();
             products.remove(product);
+            setAmountOfPurchase(amountOfPurchase.subtract(BigDecimal.valueOf(product.getPrice())));
         }
+
 
         @Override
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
             ShoppingBasket that = (ShoppingBasket) o;
-            return Double.compare(that.amountOfPurchase, amountOfPurchase) == 0 && Objects.equals(products, that.products);
+            return Objects.equals(products, that.products) && Objects.equals(amountOfPurchase, that.amountOfPurchase);
         }
 
         @Override
