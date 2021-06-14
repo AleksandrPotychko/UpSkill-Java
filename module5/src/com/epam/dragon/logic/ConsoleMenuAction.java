@@ -1,5 +1,6 @@
 package com.epam.dragon.logic;
 
+
 import com.epam.dragon.entity.Dragon;
 import java.util.Scanner;
 

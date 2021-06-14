@@ -1,5 +1,6 @@
 package com.epam.dragon.entity;
 
+
 import java.util.Objects;
 
 public class Treasure {

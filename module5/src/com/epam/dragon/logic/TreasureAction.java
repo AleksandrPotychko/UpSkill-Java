@@ -2,7 +2,6 @@ package com.epam.dragon.logic;
 
 import com.epam.dragon.entity.Dragon;
 import com.epam.dragon.entity.Treasure;
-
 import java.util.*;
 
 public class TreasureAction {
