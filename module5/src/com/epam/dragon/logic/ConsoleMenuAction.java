@@ -1,29 +1,35 @@
 package com.epam.dragon.logic;
 
+import com.epam.dragon.entity.Dragon;
 import java.util.Scanner;
 
 public class ConsoleMenuAction {
     private final Scanner scanner = new Scanner(System.in);
 
-    public void printMenuActions() {
+    public void printMenuActions(Dragon dragon) {
         String menuText = " Choose an option:\n" +
                 "1 - Show all Treasures.\n" +
                 "2 - Show most expensive.\n" +
                 "3 - Show treasures to a set value.\n";
         System.out.println(menuText);
-        processingActions(scanner.nextInt());
+        processingActions(scanner.nextInt(), dragon);
     }
 
-    private void processingActions(int choose) {
+    private void processingActions(int choose, Dragon dragon) {
         TreasureAction treasureAction = new TreasureAction();
+        if (choose < 1 || 3 < choose) {
+            System.out.println("You entered an invalid value try again.");
+            processingActions(scanner.nextInt(), dragon);
+        }
+
         switch (choose) {
             case 1:
                 System.out.println("A list of all the treasures: \n");
-                treasureAction.showAllTreasures();
+                treasureAction.showAllTreasures(dragon);
                 break;
             case 2:
                 System.out.println("Most Expensive treasures: \n");
-                System.out.println(treasureAction.chooseMostExpensive());
+                System.out.println(treasureAction.chooseMostExpensive(dragon));
                 break;
             case 3:
                 int givenAmount;
@@ -31,7 +37,7 @@ public class ConsoleMenuAction {
                 Scanner scanner = new Scanner(System.in);
                 givenAmount = scanner.nextInt();
                 System.out.println("Treasures to the entered amount");
-                System.out.println(treasureAction.findTreasureForGivenAmount(givenAmount));
+                System.out.println(treasureAction.findTreasureForGivenAmount(dragon, givenAmount));
                 break;
         }
     }

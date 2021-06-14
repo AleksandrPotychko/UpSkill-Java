@@ -1,13 +1,13 @@
 package com.epam.dragon.entity;
 
-import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class Dragon {
     private String name;
-    private Treasure[] treasures;
+    private List<Treasure> treasures;
 
-    public Dragon(String name, Treasure[] treasures) {
+    public Dragon(String name, List<Treasure> treasures) {
         this.name = name;
         this.treasures = treasures;
     }
@@ -20,11 +20,11 @@ public class Dragon {
         this.name = name;
     }
 
-    public Treasure[] getTreasures() {
+    public List<Treasure> getTreasures() {
         return treasures;
     }
 
-    public void setTreasures(Treasure[] treasures) {
+    public void setTreasures(List<Treasure> treasures) {
         this.treasures = treasures;
     }
 
@@ -33,21 +33,19 @@ public class Dragon {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Dragon dragon = (Dragon) o;
-        return Objects.equals(name, dragon.name) && Arrays.equals(treasures, dragon.treasures);
+        return Objects.equals(name, dragon.name) && Objects.equals(treasures, dragon.treasures);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(name);
-        result = 31 * result + Arrays.hashCode(treasures);
-        return result;
+        return Objects.hash(name, treasures);
     }
 
     @Override
     public String toString() {
-        return "Dragon { " +
+        return "Dragon{ " +
                 name +
-                Arrays.toString(treasures) +
+                ", treasures = " + treasures +
                 '}';
     }
 }

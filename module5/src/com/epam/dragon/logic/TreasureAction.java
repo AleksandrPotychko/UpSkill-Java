@@ -1,32 +1,24 @@
 package com.epam.dragon.logic;
 
+import com.epam.dragon.entity.Dragon;
 import com.epam.dragon.entity.Treasure;
-import com.epam.dragon.starter.TaskLauncher;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class TreasureAction {
-    public void showAllTreasures() {
-        for (Treasure treasure: TaskLauncher.dragon.getTreasures()) {
+    public void showAllTreasures(Dragon dragon) {
+        for (Treasure treasure: dragon.getTreasures()) {
             System.out.println(treasure);
         }
     }
-
-    private static int findHighPriseForTreasure() {
-        int highPrise = 0;
-        for (Treasure treasure: TaskLauncher.dragon.getTreasures()) {
-            if (treasure.getValue() > highPrise) {
-                highPrise = treasure.getValue();
-            }
-        }
-        return highPrise;
+    private static int findHighPriseForTreasure(Dragon dragon) {
+        return Collections.max(dragon.getTreasures());
     }
 
-    public List<Treasure> chooseMostExpensive() {
-        int highPrise = TreasureAction.findHighPriseForTreasure();
+    public List<Treasure> chooseMostExpensive(Dragon dragon) {
+        int highPrise = TreasureAction.findHighPriseForTreasure(dragon);
         List<Treasure> treasures = new ArrayList<>();
-        for (Treasure treasure: TaskLauncher.dragon.getTreasures()) {
+        for (Treasure treasure: dragon.getTreasures()) {
             if (highPrise == treasure.getValue()) {
                 treasures.add(treasure);
             }
@@ -34,9 +26,9 @@ public class TreasureAction {
         return treasures;
     }
 
-    public List<Treasure> findTreasureForGivenAmount(int givenAmount) {
+    public List<Treasure> findTreasureForGivenAmount(Dragon dragon, int givenAmount) {
         List<Treasure> treasures = new ArrayList<>();
-        for (Treasure treasure: TaskLauncher.dragon.getTreasures()) {
+        for (Treasure treasure: dragon.getTreasures()) {
             if (givenAmount >= treasure.getValue()) {
                 treasures.add(treasure);
             }
