@@ -1,6 +1,5 @@
 package com.epam.dragon.logic;
 
-
 import com.epam.dragon.entity.Dragon;
 import java.util.Scanner;
 
@@ -18,11 +17,6 @@ public class ConsoleMenuAction {
 
     private void processingActions(int choose, Dragon dragon) {
         TreasureAction treasureAction = new TreasureAction();
-        if (choose < 1 || 3 < choose) {
-            System.out.println("You entered an invalid value try again.");
-            processingActions(scanner.nextInt(), dragon);
-        }
-
         switch (choose) {
             case 1:
                 System.out.println("A list of all the treasures: \n");
@@ -39,6 +33,13 @@ public class ConsoleMenuAction {
                 givenAmount = scanner.nextInt();
                 System.out.println("Treasures to the entered amount");
                 System.out.println(treasureAction.findTreasureForGivenAmount(dragon, givenAmount));
+                break;
+            default:
+                System.out.println("You entered an invalid value try again.");
+                int newChoice;
+                Scanner newScanner = new Scanner(System.in);
+                newChoice = newScanner.nextInt();
+                processingActions(newChoice, dragon);
                 break;
         }
     }

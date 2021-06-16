@@ -1,6 +1,5 @@
 package com.epam.dragon.starter;
 
-
 import com.epam.dragon.entity.Dragon;
 import com.epam.dragon.logic.ConsoleMenuAction;
 import com.epam.dragon.util.TreasureInitializer;

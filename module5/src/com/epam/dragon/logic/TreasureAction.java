@@ -10,8 +10,15 @@ public class TreasureAction {
             System.out.println(treasure);
         }
     }
+
     private static int findHighPriseForTreasure(Dragon dragon) {
-        return Collections.max(dragon.getTreasures());
+        int highPrise = 0;
+        for (Treasure treasure: dragon.getTreasures()) {
+            if (treasure.getValue() > highPrise) {
+                highPrise = treasure.getValue();
+            }
+        }
+        return highPrise;
     }
 
     public List<Treasure> chooseMostExpensive(Dragon dragon) {
